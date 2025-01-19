@@ -1,0 +1,438 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\CV\\psw\\Projekat\\Explorer-PSW\\be\\src\\Modules\\Stakeholders\\Explorer.Stakeholders.Infrastructure\\Explorer.Stakeholders.Infrastructure.csproj": {}
+  },
+  "projects": {
+    "E:\\CV\\psw\\Projekat\\Explorer-PSW\\be\\src\\BuildingBlocks\\Explorer.BuildingBlocks.Core\\Explorer.BuildingBlocks.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\CV\\psw\\Projekat\\Explorer-PSW\\be\\src\\BuildingBlocks\\Explorer.BuildingBlocks.Core\\Explorer.BuildingBlocks.Core.csproj",
+        "projectName": "Explorer.BuildingBlocks.Core",
+        "projectPath": "E:\\CV\\psw\\Projekat\\Explorer-PSW\\be\\src\\BuildingBlocks\\Explorer.BuildingBlocks.Core\\Explorer.BuildingBlocks.Core.csproj",
+        "packagesPath": "C:\\Users\\Momcilo\\.nuget\\packages\\",
+        "outputPath": "E:\\CV\\psw\\Projekat\\Explorer-PSW\\be\\src\\BuildingBlocks\\Explorer.BuildingBlocks.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Momcilo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "FluentResults": {
+              "target": "Package",
+              "version": "[3.15.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\CV\\psw\\Projekat\\Explorer-PSW\\be\\src\\BuildingBlocks\\Explorer.BuildingBlocks.Infrastructure\\Explorer.BuildingBlocks.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\CV\\psw\\Projekat\\Explorer-PSW\\be\\src\\BuildingBlocks\\Explorer.BuildingBlocks.Infrastructure\\Explorer.BuildingBlocks.Infrastructure.csproj",
+        "projectName": "Explorer.BuildingBlocks.Infrastructure",
+        "projectPath": "E:\\CV\\psw\\Projekat\\Explorer-PSW\\be\\src\\BuildingBlocks\\Explorer.BuildingBlocks.Infrastructure\\Explorer.BuildingBlocks.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Momcilo\\.nuget\\packages\\",
+        "outputPath": "E:\\CV\\psw\\Projekat\\Explorer-PSW\\be\\src\\BuildingBlocks\\Explorer.BuildingBlocks.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Momcilo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "E:\\CV\\psw\\Projekat\\Explorer-PSW\\be\\src\\BuildingBlocks\\Explorer.BuildingBlocks.Core\\Explorer.BuildingBlocks.Core.csproj": {
+                "projectPath": "E:\\CV\\psw\\Projekat\\Explorer-PSW\\be\\src\\BuildingBlocks\\Explorer.BuildingBlocks.Core\\Explorer.BuildingBlocks.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Castle.Core": {
+              "target": "Package",
+              "version": "[5.1.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.4, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[7.0.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\CV\\psw\\Projekat\\Explorer-PSW\\be\\src\\Modules\\Stakeholders\\Explorer.Stakeholders.API\\Explorer.Stakeholders.API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\CV\\psw\\Projekat\\Explorer-PSW\\be\\src\\Modules\\Stakeholders\\Explorer.Stakeholders.API\\Explorer.Stakeholders.API.csproj",
+        "projectName": "Explorer.Stakeholders.API",
+        "projectPath": "E:\\CV\\psw\\Projekat\\Explorer-PSW\\be\\src\\Modules\\Stakeholders\\Explorer.Stakeholders.API\\Explorer.Stakeholders.API.csproj",
+        "packagesPath": "C:\\Users\\Momcilo\\.nuget\\packages\\",
+        "outputPath": "E:\\CV\\psw\\Projekat\\Explorer-PSW\\be\\src\\Modules\\Stakeholders\\Explorer.Stakeholders.API\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Momcilo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "E:\\CV\\psw\\Projekat\\Explorer-PSW\\be\\src\\BuildingBlocks\\Explorer.BuildingBlocks.Core\\Explorer.BuildingBlocks.Core.csproj": {
+                "projectPath": "E:\\CV\\psw\\Projekat\\Explorer-PSW\\be\\src\\BuildingBlocks\\Explorer.BuildingBlocks.Core\\Explorer.BuildingBlocks.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\CV\\psw\\Projekat\\Explorer-PSW\\be\\src\\Modules\\Stakeholders\\Explorer.Stakeholders.Core\\Explorer.Stakeholders.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\CV\\psw\\Projekat\\Explorer-PSW\\be\\src\\Modules\\Stakeholders\\Explorer.Stakeholders.Core\\Explorer.Stakeholders.Core.csproj",
+        "projectName": "Explorer.Stakeholders.Core",
+        "projectPath": "E:\\CV\\psw\\Projekat\\Explorer-PSW\\be\\src\\Modules\\Stakeholders\\Explorer.Stakeholders.Core\\Explorer.Stakeholders.Core.csproj",
+        "packagesPath": "C:\\Users\\Momcilo\\.nuget\\packages\\",
+        "outputPath": "E:\\CV\\psw\\Projekat\\Explorer-PSW\\be\\src\\Modules\\Stakeholders\\Explorer.Stakeholders.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Momcilo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "E:\\CV\\psw\\Projekat\\Explorer-PSW\\be\\src\\Modules\\Stakeholders\\Explorer.Stakeholders.API\\Explorer.Stakeholders.API.csproj": {
+                "projectPath": "E:\\CV\\psw\\Projekat\\Explorer-PSW\\be\\src\\Modules\\Stakeholders\\Explorer.Stakeholders.API\\Explorer.Stakeholders.API.csproj"
+              },
+              "E:\\CV\\psw\\Projekat\\Explorer-PSW\\be\\src\\Modules\\Tours\\Explorer.Tours.API\\Explorer.Tours.API.csproj": {
+                "projectPath": "E:\\CV\\psw\\Projekat\\Explorer-PSW\\be\\src\\Modules\\Tours\\Explorer.Tours.API\\Explorer.Tours.API.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\CV\\psw\\Projekat\\Explorer-PSW\\be\\src\\Modules\\Stakeholders\\Explorer.Stakeholders.Infrastructure\\Explorer.Stakeholders.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\CV\\psw\\Projekat\\Explorer-PSW\\be\\src\\Modules\\Stakeholders\\Explorer.Stakeholders.Infrastructure\\Explorer.Stakeholders.Infrastructure.csproj",
+        "projectName": "Explorer.Stakeholders.Infrastructure",
+        "projectPath": "E:\\CV\\psw\\Projekat\\Explorer-PSW\\be\\src\\Modules\\Stakeholders\\Explorer.Stakeholders.Infrastructure\\Explorer.Stakeholders.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Momcilo\\.nuget\\packages\\",
+        "outputPath": "E:\\CV\\psw\\Projekat\\Explorer-PSW\\be\\src\\Modules\\Stakeholders\\Explorer.Stakeholders.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Momcilo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "E:\\CV\\psw\\Projekat\\Explorer-PSW\\be\\src\\BuildingBlocks\\Explorer.BuildingBlocks.Infrastructure\\Explorer.BuildingBlocks.Infrastructure.csproj": {
+                "projectPath": "E:\\CV\\psw\\Projekat\\Explorer-PSW\\be\\src\\BuildingBlocks\\Explorer.BuildingBlocks.Infrastructure\\Explorer.BuildingBlocks.Infrastructure.csproj"
+              },
+              "E:\\CV\\psw\\Projekat\\Explorer-PSW\\be\\src\\Modules\\Stakeholders\\Explorer.Stakeholders.Core\\Explorer.Stakeholders.Core.csproj": {
+                "projectPath": "E:\\CV\\psw\\Projekat\\Explorer-PSW\\be\\src\\Modules\\Stakeholders\\Explorer.Stakeholders.Core\\Explorer.Stakeholders.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[7.0.9, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\CV\\psw\\Projekat\\Explorer-PSW\\be\\src\\Modules\\Tours\\Explorer.Tours.API\\Explorer.Tours.API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\CV\\psw\\Projekat\\Explorer-PSW\\be\\src\\Modules\\Tours\\Explorer.Tours.API\\Explorer.Tours.API.csproj",
+        "projectName": "Explorer.Tours.API",
+        "projectPath": "E:\\CV\\psw\\Projekat\\Explorer-PSW\\be\\src\\Modules\\Tours\\Explorer.Tours.API\\Explorer.Tours.API.csproj",
+        "packagesPath": "C:\\Users\\Momcilo\\.nuget\\packages\\",
+        "outputPath": "E:\\CV\\psw\\Projekat\\Explorer-PSW\\be\\src\\Modules\\Tours\\Explorer.Tours.API\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Momcilo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "E:\\CV\\psw\\Projekat\\Explorer-PSW\\be\\src\\BuildingBlocks\\Explorer.BuildingBlocks.Core\\Explorer.BuildingBlocks.Core.csproj": {
+                "projectPath": "E:\\CV\\psw\\Projekat\\Explorer-PSW\\be\\src\\BuildingBlocks\\Explorer.BuildingBlocks.Core\\Explorer.BuildingBlocks.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

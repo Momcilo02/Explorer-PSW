@@ -1,0 +1,20 @@
+{
+  "Explorer.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\faks\\PSW\\Projekat\\psw-be-ra-2024-group-7\\src\\Explorer.API",
+  "Explorer.Blog.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\faks\\PSW\\Projekat\\psw-be-ra-2024-group-7\\src\\Modules\\Blog\\Explorer.Blog.API",
+  "Explorer.Blog.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\faks\\PSW\\Projekat\\psw-be-ra-2024-group-7\\src\\Modules\\Blog\\Explorer.Blog.Core",
+  "Explorer.Blog.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\faks\\PSW\\Projekat\\psw-be-ra-2024-group-7\\src\\Modules\\Blog\\Explorer.Blog.Infrastructure",
+  "Explorer.BuildingBlocks.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\faks\\PSW\\Projekat\\psw-be-ra-2024-group-7\\src\\BuildingBlocks\\Explorer.BuildingBlocks.Core",
+  "Explorer.BuildingBlocks.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\faks\\PSW\\Projekat\\psw-be-ra-2024-group-7\\src\\BuildingBlocks\\Explorer.BuildingBlocks.Infrastructure",
+  "Explorer.Encounters.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\faks\\PSW\\Projekat\\psw-be-ra-2024-group-7\\src\\Modules\\Encounters\\Explorer.Encounters.API",
+  "Explorer.Encounters.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\faks\\PSW\\Projekat\\psw-be-ra-2024-group-7\\src\\Modules\\Encounters\\Explorer.Encounters.Core",
+  "Explorer.Encounters.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\faks\\PSW\\Projekat\\psw-be-ra-2024-group-7\\src\\Modules\\Encounters\\Explorer.Encounters.Infrastructure",
+  "Explorer.Shopping.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\faks\\PSW\\Projekat\\psw-be-ra-2024-group-7\\src\\Modules\\Shopping\\Explorer.Shopping.API",
+  "Explorer.Shopping.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\faks\\PSW\\Projekat\\psw-be-ra-2024-group-7\\src\\Modules\\Shopping\\Explorer.Shopping.Core",
+  "Explorer.Shopping.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\faks\\PSW\\Projekat\\psw-be-ra-2024-group-7\\src\\Modules\\Shopping\\Explorer.Shopping.Infrastructure",
+  "Explorer.Stakeholders.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\faks\\PSW\\Projekat\\psw-be-ra-2024-group-7\\src\\Modules\\Stakeholders\\Explorer.Stakeholders.API",
+  "Explorer.Stakeholders.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\faks\\PSW\\Projekat\\psw-be-ra-2024-group-7\\src\\Modules\\Stakeholders\\Explorer.Stakeholders.Core",
+  "Explorer.Stakeholders.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\faks\\PSW\\Projekat\\psw-be-ra-2024-group-7\\src\\Modules\\Stakeholders\\Explorer.Stakeholders.Infrastructure",
+  "Explorer.Tours.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\faks\\PSW\\Projekat\\psw-be-ra-2024-group-7\\src\\Modules\\Tours\\Explorer.Tours.API",
+  "Explorer.Tours.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\faks\\PSW\\Projekat\\psw-be-ra-2024-group-7\\src\\Modules\\Tours\\Explorer.Tours.Core",
+  "Explorer.Tours.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "E:\\faks\\PSW\\Projekat\\psw-be-ra-2024-group-7\\src\\Modules\\Tours\\Explorer.Tours.Infrastructure"
+}
