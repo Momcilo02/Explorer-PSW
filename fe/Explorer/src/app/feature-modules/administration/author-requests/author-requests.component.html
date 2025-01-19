@@ -1,0 +1,83 @@
+<div class="pic-design-container">
+    <img class="pic-design" src="assets/images/question.jpg">
+    <div class="img-cover">
+      <h1 class="header_my_profile">Requests</h1>
+    </div>
+  </div>
+
+<div id="request">
+    <h1>Object Requests</h1>
+    <div id="request-details">
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Category</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let o of objects">
+              <td>{{o.name}}</td>
+              <td>{{o.description}}</td>
+              <td>{{getCategory(o.category)}}</td>
+              <td>{{getStatus(o.status)}}</td>
+              <td>
+                <div class="buttons">
+                    <button class="action-button acceptButton" (click)="acceptRequestObject(o)">Accept</button>
+                    <button class="action-button refuseButton" (click)="showCommentForm(o,'refuse','object')">Refuse</button>
+                </div>
+                <div *ngIf="selectedObject === o">
+                  <label *ngIf="actionType==='refuse'">Comment:
+                    <input [(ngModel)]="commentText" />
+                  </label>
+                  <button class="submitButton" (click)="submitComment(o,'object')">Submit</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  <div id="request">
+    <h1>Key Point Requests</h1>
+    <div id="request-details">
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let k of keyPoints">
+              <td>{{k.name}}</td>
+              <td>{{k.description}}</td>
+              <td>{{getStatus(k.status)}}</td>
+              <td>
+                <div class="buttons">
+                    <button class="action-button acceptButton" (click)="acceptRequestKeyPoint(k)">Accept</button>
+                    <button class="action-button refuseButton" (click)="showCommentForm(k,'refuse','key-point')">Refuse</button>
+                </div>
+                <div *ngIf="selectedKeyPoint === k">
+                  <label *ngIf="actionType==='refuse'">Comment:
+                    <input [(ngModel)]="commentText" />
+                  </label>
+                  <button class="submitButton" (click)="submitComment(k,'key-point')">Submit</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  

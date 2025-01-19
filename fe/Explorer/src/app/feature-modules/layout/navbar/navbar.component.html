@@ -1,0 +1,75 @@
+<div id="nav-bar">
+    <img src="assets/images/Wander transparent.png" alt="Wander Image">
+    <div class="nav-buttons">
+        <button class="button" *ngIf="user && user.role === 'author'" [routerLink]="['object']" (click)="closeDropdown()">Tour objects</button>
+        <button class= "wheelButton"  *ngIf="user && user.role === 'tourist'"  [routerLink]="['lucky-wheel']" (click)="closeDropdown()">
+            <img  class="wheelButton-img" src="assets/images/luckyWheel.png" alt="Lucky Wheel">
+        </button>
+        <button class="button" [routerLink]="['home']" (click)="closeDropdown()">Home</button>
+
+        <!-- Blog Dropdown Menu -->
+        <button  *ngIf="user && user.role === 'tourist'" class="button" [routerLink]="['blogs']" (click)="closeDropdown()">Blogs</button>
+
+        <!-- Administrator Dropdown Menu -->
+        <div class="dropdown" *ngIf="user && user.role === 'administrator'">
+            <button class="button" (click)="toggleDropdown('admin')" >Administrator</button>
+            <div class="dropdown-menu" [class.show]="showDropdown === 'admin'">
+                <button class="button" [routerLink]="['account-details']" (click)="closeDropdown()">Account details</button>
+                <button class="button" [routerLink]="['equipment']" (click)="closeDropdown()">Manage equipment</button>
+                <button class="button" [routerLink]="['reported-tour-problems']" (click)="closeDropdown()">Manage reported tour problems</button>
+                <button class="button" [routerLink]="['grades']" (click)="closeDropdown()">View Grades</button>
+                <button class="button" [routerLink]="['encounters']" (click)="closeDropdown()">Encounters</button>
+                <button class="button" [routerLink]="['authorRequests']" (click)="closeDropdown()">Manage author requests</button>
+            </div>
+        </div>
+         <!-- ENCOUNTER Dropdown Menu -->
+        <div class="dropdown" *ngIf="(user && user.role === 'administrator') || (user && user.role === 'tourist')">
+            <button class="button" (click)="toggleDropdown('encounter')">Encounters</button>
+            <div class="dropdown-menu" [class.show]="showDropdown === 'encounter'">
+                <button  class="button" [routerLink]="['encounter-view']" (click)="closeDropdown()">All Encounters</button>
+                <button *ngIf="user" class="button" [routerLink]="['encounters']" (click)="closeDropdown()">Add Encounter</button>
+                <button *ngIf="user && user.role === 'tourist'" class="button" [routerLink]="['started-encounter']" (click)="closeDropdown()">Encounter Execution</button>
+            </div>
+        </div>
+
+        <!-- Tourist Dropdown Menu -->
+        <div class="dropdown" *ngIf="user && user.role === 'tourist'">
+            <button class="button" (click)="toggleDropdown('tourist')">Tourist</button>
+            <div class="dropdown-menu" [class.show]="showDropdown === 'tourist'">
+                <button class="button" [routerLink]="['touristClub']" (click)="closeDropdown()">Tourist Club</button>
+                <button class="button" [routerLink]="['tourist-equipment']" (click)="closeDropdown()">Tourist Equipment</button>
+                <button class="button" [routerLink]="['tourist-tours']" (click)="closeDropdown()">My Tours</button>
+                <button class="button" *ngIf="user && user.role === 'tourist'" [routerLink]="['reported-tour-problems']" (click)="closeDropdown()">My tour reports</button>
+            </div>
+        </div>
+
+        <button class="button" *ngIf="user && user.role === 'tourist'" [routerLink]="['position-simulator']" (click)="closeDropdown()">Explore Map</button>
+
+        <div class="dropdown" *ngIf="user && user.role === 'tourist'">
+            <button class="button" (click)="toggleDropdown('explore')">Explore</button>
+            <div class="dropdown-menu" [class.show]="showDropdown === 'explore'">
+                <button class="button" [routerLink]="['tour-overview']" (click)="closeDropdown()">Explore Tours</button>
+                <button class="button" [routerLink]="['bundle']" (click)="closeDropdown()">Explore Tour Bundles</button>
+            </div>
+        </div>
+
+        <button class="button" *ngIf="user && (user.role === 'author'|| user.role === 'tourist')" [routerLink]="['profile-info']" (click)="closeDropdown()">Profile info</button>
+        <button class="button" *ngIf="user && user.role === 'author'" [routerLink]="['reported-tour-problems']" (click)="closeDropdown()">My tour reports</button>
+        <button class="button" *ngIf="user && user.role === 'author'" [routerLink]="['tour']" (click)="closeDropdown()">Tours</button>
+        <button class="button" *ngIf="user && user.role === 'author'" [routerLink]="['bundle']" (click)="closeDropdown()">Bundles</button>
+        <button class="cart-button" *ngIf="user && user.role === 'tourist'" [routerLink]="['shopping-cart']" (click)="closeDropdown()">🛒({{ shoppingCartItems }})</button>
+        <button class="button" *ngIf="user && user.role === 'author'" [routerLink]="['coupons']" (click)="closeDropdown()">Coupons</button>
+        <button class="button-login" *ngIf="user && user.username === ''" [routerLink]="['login']" (click)="closeDropdown()">Log in</button>
+        <button class="button-logout" *ngIf="user && user.username !== ''" (click)="onLogout()" (click)="closeDropdown()">Log out</button>
+
+        <!-- Notifications -->
+        <div class="dropdown">
+            <button class="notification-button" *ngIf="user && user.username !== ''" (click)="toggleDropdown('notifications')">
+                <mat-icon>notifications</mat-icon>
+            </button>
+            <div class="notification-menu" [class.show]="showDropdown === 'notifications'">
+                <xp-notification></xp-notification>
+            </div>
+        </div>
+    </div>
+</div>

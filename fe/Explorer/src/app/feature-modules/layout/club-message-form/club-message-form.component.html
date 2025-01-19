@@ -1,0 +1,47 @@
+<div *ngIf="!editView" class="send-message-form">
+  <form>
+    <h4>Send for tourist club: {{touristClub.name}}</h4>
+    <div>
+      <label for="message">Message</label>
+      <textarea
+        id="message"
+        [(ngModel)]="message"
+        name="message-content"
+        rows="4"
+        maxlength="280"
+        (input)="updateRemainingChars()"
+        required
+      ></textarea>
+      <small>{{ remainingChars }} characters left</small>
+    </div>
+
+    <label>{{sendingFeedback}}</label>
+    <button type="submit" [disabled]="!message || remainingChars < 0" (click)="onSubmit()">Send</button>
+  </form>
+</div>
+
+<!--  ****************  Edit view  **************** -->
+<div *ngIf="editView" class="send-message-form">
+  <form>
+    <h4>Send for tourist club: {{touristClub.name}}</h4>
+    <div>
+      <label for="message">Message</label>
+      <textarea
+        id="message"
+        [(ngModel)]="message"
+        name="message-content"
+        rows="4"
+        maxlength="280"
+        (input)="updateRemainingChars()"
+        required
+      ></textarea>
+      <small>{{ remainingChars }} characters left</small>
+    </div>
+
+    <label>{{sendingFeedback}}</label>
+    <button type="submit" [disabled]="!message || remainingChars < 0" (click)="onEdit()">Send</button>
+  </form>
+</div>
+
+
+

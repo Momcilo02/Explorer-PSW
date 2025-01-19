@@ -1,0 +1,81 @@
+<form [formGroup]="tourForm">
+    <div>
+      <h2>Manage tour</h2>
+      <br>
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name" matTooltip="Enter name of tour" type="text"/>
+            <mat-error *ngIf="tourForm.get('name')?.hasError('required')">
+              Name is required.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Difficulty</mat-label>
+            <mat-select formControlName="difficulty" matTooltip="Select the difficulty of the tour">
+              <mat-option>--</mat-option>
+              <mat-option [value]="0">Easy</mat-option>
+              <mat-option [value]="1">Medium</mat-option>
+              <mat-option [value]="2">Hard</mat-option>
+              <mat-option [value]="3">Hell</mat-option>
+            </mat-select>
+            <mat-error *ngIf="tourForm.get('difficulty')?.hasError('required')">
+              Difficulty is required.
+          </mat-error>
+          </mat-form-field>
+        <mat-form-field>
+          <mat-label>Description</mat-label>
+          <textarea matInput
+          cdkTextareaAutosize
+          cdkAutosizeMinRows="1"
+          formControlName="description"
+          cdkAutosizeMaxRows="5"
+          matTooltip="Provide a short description of the tour"></textarea>
+          <mat-error *ngIf="tourForm.get('description')?.hasError('required')">
+            Description is required.
+        </mat-error>
+        </mat-form-field>
+        <mat-form-field *ngIf="shouldEdit">
+            <mat-label>Cost</mat-label>
+            <input matInput formControlName="cost" matTooltip="Enter cost of tour" type="number">
+            <mat-error *ngIf="tourForm.get('cost')?.hasError('required')">
+              Cost is required.
+            </mat-error>
+            <mat-error *ngIf="tourForm.get('cost')?.hasError('min')">
+              Cost must be positive.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field *ngIf="0">
+            <mat-label>Status</mat-label>
+            <mat-select formControlName="status" matTooltip="Select the status of the tour">
+                <mat-option [value]="0">Draft</mat-option>
+                <mat-option [value]="1">Published</mat-option>
+                <mat-option [value]="2">Archived</mat-option>
+              </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="example-form-field" matTooltip="Select the tags of the tour">
+            <mat-label>Tags*</mat-label>
+            <mat-chip-grid #templateChipGrid aria-label="Enter template form keywords" >
+       
+              <mat-chip-row *ngFor="let keyword of templateKeywords()" (removed)="removeTag(keyword)">
+                {{keyword}}
+              <button matChipRemove class="tag">
+                <mat-icon>cancel</mat-icon>
+              </button>
+              </mat-chip-row>
+            
+            </mat-chip-grid>
+            <input
+              placeholder="New tag(type and press enter)..."
+              [matChipInputFor]="templateChipGrid"
+              (matChipInputTokenEnd)="addTag($event)"
+            />
+          </mat-form-field>
+        <div class="file-upload">
+            <mat-label>Image</mat-label>
+            <input type="file" (change)="onFileSelected($event)" />
+        </div>
+        <button class="add-update" mat-raised-button *ngIf="!shouldEdit" type="submit" (click)="addTour()">Add Tour </button>
+        <button class="add-update" mat-raised-button *ngIf="shouldEdit" type="submit" (click)="updateTour()"> Update Tour </button>
+    </div>
+</form>

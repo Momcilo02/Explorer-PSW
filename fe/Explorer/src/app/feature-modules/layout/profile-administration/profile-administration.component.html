@@ -1,0 +1,200 @@
+<div class="photo-role">
+  <img class="pic-design" src="assets/images/tourist-profile.jpg" *ngIf="user.role === 'tourist'">
+  <img class="pic-design" src="assets/images/author-profile.jpg" *ngIf="user.role === 'author' || user.role === 'administrator'">
+
+  <div class="img-cover">
+    <h1 class="header_my_profile">My profile</h1>
+  </div>
+</div>
+
+<div class="main-info">
+  <div class="simple-info">
+    <div class="pfp-div">
+      <img class="user-pfp"  [src]="imageMap.get(profileImage)">
+    </div>
+
+    <div class="profile-details">
+      <h6 class="user-name" *ngIf="currentUser !== undefined">{{currentUser.name}}  {{currentUser.surname}}</h6>
+      <div class="follow-followers">
+        <p class="follow-followers-hover" (click)="toggleUsersModal()">Follow</p> 
+        <p class="follow-followers-hover"  (click)="toggleFollowersModal()">Followers</p>
+      </div>
+      <p class="user-role" *ngIf="user.role === 'tourist'">Tourist</p>
+      <p class="user-role"  *ngIf="user.role === 'author'">Author</p>
+      <p class="user-role" *ngIf="user.role === 'administrator'">Administrator</p>
+
+      <button class="custom-button" (click)="startEditing()">Edit profile
+        <mat-icon class="matt-icon-button">edit</mat-icon>
+      </button>
+  </div>
+
+   
+
+  </div>
+
+<div class="all-info">
+  <div class="information-section">
+    <h2 class="section-heading">About me</h2>
+    <div class="information-row">
+
+        <div class="information-column">
+            <p class="information-label">Biography:</p>
+            <h4 class="information-value" *ngIf="currentUser !== undefined">{{ currentUser.biography }}</h4>
+
+            <p class="information-label">My motto:</p>
+            <h4 class="information-value"  *ngIf="currentUser !== undefined">{{ currentUser.motto}}</h4>
+            <p class="information-label">Status:</p>
+            <h4 class="information-value"  *ngIf="currentUser !== undefined">{{ checkStatus()}}</h4>
+            <p class="information-label">Rank:</p>
+            <h4 class="information-value"  *ngIf="currentUser !== undefined">{{ checkRank()}}</h4>
+        </div>
+      </div>
+
+      <div class="information-section">
+        <h2 class="section-heading">Contact me</h2>
+          <div class="information-row">
+            <div class="information-column">
+                <p class="information-label">Email:</p>
+                <h4 class="information-value" *ngIf="currentUser !== undefined" >{{currentUser.email}}</h4>
+            </div>
+          </div>
+      </div>
+  </div>
+</div>
+</div>
+
+
+<!-- Edit form  -->
+ <div class="edit-bg" *ngIf="showForm">
+<form #editForm [formGroup]="profileInfoForm" (ngSubmit)="edit()">
+  <div class="edit_form">
+    <div class="edit_form_row">
+      <div>
+        <label>Name</label>
+        <input formControlName="name" type="text" [readonly]="!isEditing"/>
+        <div *ngIf="profileInfoForm.get('name')?.invalid && profileInfoForm.get('name')?.touched">
+          <span *ngIf="profileInfoForm.get('name')?.hasError('required')">Name is required.</span>
+          <span *ngIf="profileInfoForm.get('name')?.hasError('pattern')">Name should start with an uppercase letter.</span>
+        </div>
+      </div>
+
+      <div>
+        <label>Surname</label>
+        <input formControlName="surname" type="text" [readonly]="!isEditing"/>
+        <div *ngIf="profileInfoForm.get('surname')?.invalid && profileInfoForm.get('surname')?.touched">
+          <span *ngIf="profileInfoForm.get('surname')?.hasError('required')">Surname is required.</span>
+          <span *ngIf="profileInfoForm.get('surname')?.hasError('pattern')">Surname should start with an uppercase letter.</span>
+        </div>
+      </div>
+
+      <div>
+        <label>Email</label>
+        <input formControlName="email" type="email" [readonly]="!isEditing"/>
+        <div *ngIf="profileInfoForm.get('email')?.invalid && profileInfoForm.get('email')?.touched">
+          <span *ngIf="profileInfoForm.get('email')?.hasError('required')">Email is required.</span>
+          <span *ngIf="profileInfoForm.get('email')?.hasError('email')">Invalid email format.</span>
+        </div>
+      </div>
+
+      <div>
+        <label>Profile Picture</label>
+        <!-- <input type="text" formControlName="profilePictureUrl" [readonly]="true" /> -->
+        <input type="file" [readOnly]="!isEditing" (change)="onFileSelected($event)"/>
+        <img [src]="imageMap.get(imageUrl)" alt ="slika" style="width: 80px;">
+      </div>
+    </div>
+
+    <div class="edit_form_row">
+
+      <div>
+        <label>Biography</label>
+        <textarea formControlName="biography" type="text" [readonly]="!isEditing"></textarea>
+      </div>
+
+      <div>
+        <label style="margin-left: 12px;">Motto</label>
+        <textarea style="margin-left: 12px;" formControlName="motto" type="text" [readonly]="!isEditing"></textarea>
+      </div>
+
+      <div class="button_edit_submit">
+        <button class="button-submit" *ngIf="isEditing" (click)="saveChanges()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</form>
+</div>
+
+
+<!-- Follow Modal -->
+<div class="custom-modal" *ngIf="showUsersModal" >
+  <div class="custom-modal-content">
+    <span class="close-button" (click)="toggleUsersModal()">&times;</span>
+        <h2>Follow</h2>
+        <table >
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Surname</th>
+              <th>Email</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+             <!-- Dodajte redove za korisnike --> 
+            <tr *ngFor="let u of allUsers">
+              <td>{{u.name}}</td>
+              <td>{{u.surname}}</td>
+              <td>{{u.email}}</td>
+              <td><button class="send-message-button" (click)="followUser(u.id)">Follow</button></td>
+            </tr>
+            <!-- Dodajte više redova po potrebi -->
+          </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Followers Modal -->
+<div class="custom-modal" *ngIf="showFollowersModal" >
+  <div class="custom-modal-content-followers">
+    <span class="close-button" (click)="toggleFollowersModal()">&times;</span>
+    
+    <div class="modal-body">
+      <div class="followers-table-container">
+      <h2>Followers</h2>
+      <table class="followers-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Email</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+           
+          <tr *ngFor="let f of followersList">
+            <td>{{f.name}}</td>
+            <td>{{f.surname}}</td>
+            <td>{{f.email}}</td>
+            <td>
+              <button (click)="sendMessage(f)" *ngIf="user.role !== 'author' && user.role !== 'administrator' " class="send-message-button">
+                <mat-icon>send</mat-icon> Send
+              </button>
+            </td>
+            <td>
+              <button class="send-message-button" [routerLink]="['/profile-chat', f.id]">
+                <mat-icon>chat</mat-icon> Chat
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+    <div *ngIf="selectedFollower" class="message-form-container show">
+      <xp-profile-message-form [name]="selectedFollower.name" [surname]="selectedFollower.surname" [receiverId]="selectedFollower.userId"></xp-profile-message-form>
+    </div>
+  </div>
+</div>
+

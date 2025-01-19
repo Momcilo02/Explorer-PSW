@@ -1,0 +1,157 @@
+<div>
+<div class="img-holder">
+    <img class="main-img" [src]="currentImage" alt="Wanderer Image">
+    <div class="welcome">
+        <h1 class="img-header">Wander</h1>
+        <p class="img-p">Where exploration meets inspiration – be the guide or the traveler.</p>
+        
+        <div class="button-margin">
+        <button class="welcome-button" (click)="scrollToTourist()">Explore Now</button>
+        <button class="welcome-button" (click)="scrollToGuide()">Start Guiding</button>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="carousel-container">
+    <h1 class="tour-header">Popular tours</h1>
+    <div class="carousel">
+        <div class="card">
+            <img src="assets/images/japan.jpg" alt="Tour 1">
+            <div class="card-info">
+                <h3>Japan</h3>
+                <p class="carousel-text">Cena: $100</p>
+                <p class="carousel-text">Trajanje: 3h</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="assets/images/egipt-piramides.jpg" alt="Piramides in Egipt">
+            <div class="card-info">
+                <h3>Piramides in Egipt</h3>
+                <p class="carousel-text">Cena: $150</p>
+                <p class="carousel-text">Trajanje: 5h</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="assets/images/paris.jpg" alt="Tour 3">
+            <div class="card-info">
+                <h3>Eiffel Tower in Paris</h3>
+                <p class="carousel-text">Cena: $200</p>
+                <p class="carousel-text">Trajanje: 1d</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="assets/images/venice.jpg" alt="Tour 4">
+            <div class="card-info">
+                <h3>Venice in Italy</h3>
+                <p class="carousel-text">Cena: $250</p>
+                <p class="carousel-text">Trajanje: 2d</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="assets/images/tour-egipt1.jpg" alt="Tour 5">
+            <div class="card-info">
+                <h3>Ride on camels in dessert</h3>
+                <p class="carousel-text">Cena: $250</p>
+                <p class="carousel-text">Trajanje: 2d</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="tourist-section">
+    <h1 class="sections">Tourist</h1>
+    <div class="tourist-elements">
+    <div class="image-container">
+        <img src="assets/images/tourists.jpg" class="tourist-image" alt="Tourist 1">
+        <img src="assets/images/tourist2.jpg" class="tourist-image" alt="Tourist 2">
+        <img src="assets/images/tourist.jpg" class="tourist-image" alt="Cookies">
+    </div>
+    <div>
+        <h2 class="info-header">
+            Why you should choose us:
+        </h2>
+        <ul class="info-list">
+            <li>Experience authentic tours with local guides.</li>
+            <li>Private tours for small groups or families seeking unique experiences.</li>
+            <li>Exclusive deals and partnerships with local restaurants and attractions.</li>
+            <li>Booking safety guarantee with flexible cancellation options.</li>
+            <li>Reviews and ratings from previous travelers for informed decision-making.</li>
+        </ul>
+        <button class="tourist-button">Start your journey</button>
+    </div>
+    
+    </div>
+    
+</div>
+
+
+<div id="guide-section">
+    <div class="guide-container">
+      <div class="guide-info">
+        <h2 class="guide-header">Why you should choose us:</h2>
+        <ul class="guide-list">
+          <li>Register in just a few minutes</li>
+          <li>Plan tours according to your schedule.</li>
+          <li>Easily set up tours through an intuitive interface.</li>
+        </ul>
+        <button class="guide-button">Join Our Team</button>
+      </div>
+  
+      <!-- Right side: Title and Images below it -->
+      <div class="guide-right">
+        <h1 class="guide-h1">Guide</h1>
+        <div class="guide-images">
+          <img src="assets/images/compas.jpg" class="guide-image" alt="compas">
+          <img src="assets/images/guide1.jpg" class="guide-image" alt="guide image">
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="footer">
+  <div class="footer-container">
+    <!-- Section for Links -->
+    <div class="footer-links">
+      <h3>Useful Links</h3>
+      <ul>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Terms of Service</a></li>
+      </ul>
+    </div>
+
+    <!-- Section for Contact Info -->
+    <div class="footer-contact">
+      <h3>Contact Us</h3>
+      <p>Email: info&#64;example.com</p>
+      <p>Phone: +123 456 7890</p>
+      <p>Address: 123 Street, City, Country</p>
+    </div>
+
+    <!-- Section for Social Media -->
+    <div class="footer-social">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/login" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" width="24" height="24">
+          </a>
+          <a href="https://www.instagram.com/accounts/login/" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" width="24" height="24">
+          </a>
+          <a href="https://twitter.com/login" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1DA1F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M23 3c-1.008 0-2.019.363-2.814 1.01A4.963 4.963 0 0 0 20 5c-1.418 0-2.728.558-3.707 1.48A4.935 4.935 0 0 0 15 3c-2.749 0-4.947 2.213-4.947 4.943 0 .387.045.765.127 1.124C7.18 8.588 4.465 6.984 2.1 5.36c-.429.73-.675 1.577-.675 2.475 0 1.707.87 3.213 2.188 4.094A4.92 4.92 0 0 1 1 11v.062c0 2.385 1.692 4.376 3.949 4.83a4.938 4.938 0 0 1-2.224.084c.628 1.956 2.448 3.375 4.603 3.414a9.87 9.87 0 0 1-6.1 2.1c-.395 0-.787-.023-1.17-.067a13.91 13.91 0 0 0 7.548 2.211C20.992 18.063 24 13.564 24 9.004c0-.21-.005-.419-.014-.627A10.003 10.003 0 0 0 23 3z"/>
+            </svg>
+          </a>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+</div>

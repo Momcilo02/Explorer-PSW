@@ -1,0 +1,29 @@
+<div class="message-card">
+  <div class="message-header">
+    <div class="sender-info">
+      <strong>
+        {{ loggedInUser.id === message.senderId ? 'Me' : message.senderName + ' ' + message.senderSurname }}
+      </strong>
+      <!-- <strong>{{ message.senderName }} {{ message.senderSurname }}</strong> -->
+      <div class="date">{{ message.sentDate | date: 'short' }}</div>
+    </div>
+  </div>
+  <div class="message-content">
+    <p>{{ message.content }}</p>
+  </div>
+  <!-- <div class="message-resources" *ngIf="message.resourcesId">
+    <span>{{ message.resourcesType }}: {{ message.resourcesName }}</span>
+  </div> -->
+  <div class="message-resources" *ngIf="message.resourcesId">
+    <a
+      *ngIf="message.resourcesType === 'Tour'"
+      [routerLink]="['/tour']">
+      {{ message.resourcesType }}: {{ message.resourcesName }}
+    </a>
+    <a
+      *ngIf="message.resourcesType === 'Blog'"
+      [routerLink]="['/blogs']">
+      {{ message.resourcesType }}: {{ message.resourcesName }}
+    </a>
+  </div>
+</div>

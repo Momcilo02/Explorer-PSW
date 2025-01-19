@@ -1,0 +1,49 @@
+<img class="pic-design" src="assets/images/keypoint.jpg">
+<div class="img-cover">
+  <h1 class="header_my_profile">Objects</h1>
+  <button (click)="onAddClicked()">Add New Object</button>
+</div>
+<div class="object-container">
+  <!-- Sidebar for objects -->
+  <div class="object-sidebar">
+    <div class="object-header">
+      <h1>Objects</h1>
+    </div>
+    <div class="object-list">
+      <div *ngFor="let object of objects" class="object-card">
+        <div class="card-header">
+          <h3><strong>{{ object.name }}</strong></h3>
+          <hr>
+        </div>
+        <div class="card-body">
+          <p><strong>Description:</strong> {{ object.description }}</p>
+          <p><strong>Category:</strong> {{ getCategory(object.category) }}</p>
+          <p><strong>Latitude:</strong> {{ object.latitude }}</p>
+          <p><strong>Longitude:</strong> {{ object.longitude }}</p>
+          <img [src]="imageMap.get(object.image)" alt="Object image" class="object-image">
+        </div>
+        <div class="card-actions">
+          <button mat-icon-button matTooltip="Delete Object" (click)="deleteObject(object)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button mat-icon-button matTooltip="Update Object" (click)="onEditClicked(object)">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Central Map Section -->
+  <div class="object-map">
+    <xp-map (mapClick)="onMapClick($event)" [isObjectComponent]="isObjectComponent" [externalPoints]="externalPoints"></xp-map>
+  </div>
+
+  <!-- Modal Form -->
+  <div class="modal" *ngIf="shouldAdd || shouldEdit" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <span class="close" (click)="closeModal()">&times;</span>
+      <xp-object-form [shouldAdd]="shouldAdd" [shouldEdit]="shouldEdit" [object]="selectedObject" (objectUpdated)="getObjects()" [longitude]="longitude" [latitude]="latitude"></xp-object-form>
+    </div>
+  </div>
+</div>

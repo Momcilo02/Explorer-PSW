@@ -1,0 +1,41 @@
+<div id="clubs">
+    <p>Tourist Clubs</p>
+    <hr>
+
+<div class="content-container">
+<!-- clubs -->
+<div class="card-container">
+  <div class="card" *ngFor="let club of allTouristClubs">
+      <button *ngIf="club.ownerId == loggedInUser.id" class="edit-button"  (click)="onEditClicked(club)" ><mat-icon>edit</mat-icon></button>
+      <!-- <img [src]="club.imageUrl || 'https://via.placeholder.com/150x100'" alt="Club Picture"> -->
+      <img [src]="imageMap.get(club.picture)" alt="Club Picture">
+
+      <div class="card-content">
+          <div class="card-title">{{ club.name }}</div>
+          <div class="card-description">{{ club.description }}</div>
+          <div class="card-actions">
+            <!-- <button *ngIf="!club.alreadyMember" class="join-button" >Join Club</button> -->
+            <button *ngIf="!club.alreadyMember" class="send-message-button"  (click)="becomeMember(club)">
+              Become a member
+            </button>
+              <button *ngIf="club.alreadyMember"  class="send-message-button" [routerLink]="['/tourist-club-chat', club.id, club.name, club.ownerId]"> <mat-icon>chat</mat-icon> Chat </button>
+              <!-- <button *ngIf="club.alreadyMember"  class="send-message-button" (click)="showChat(club.id, club)">
+                <mat-icon>chat</mat-icon> Chat
+              </button> -->
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="chat-container">
+  <button class="create-club-button" (click)="onAddClicked()" mat-icon-button>
+    <mat-icon class="large-icon">add</mat-icon>
+    <span>Create Tourist Club</span>
+  </button>
+  <xp-tourist-club-form class="tourist-club-form" *ngIf="shouldRenderTouristClubForm" [shouldEdit]="shouldEdit" [touristClub]="selectedTouristClub" (touristClubsUpdated) ="getAllTouristClubs()"></xp-tourist-club-form>
+
+</div>
+
+</div>
+
+</div>

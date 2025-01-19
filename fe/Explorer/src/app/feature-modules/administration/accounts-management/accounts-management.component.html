@@ -1,0 +1,35 @@
+<div class="pic-design-container">
+    <img class="pic-design" src="assets/images/coins.jpg">
+    <div class="img-cover">
+      <h1 class="header_my_profile">Account management</h1>
+    </div>
+  </div>
+
+<div id="account">
+  <!-- <h1>Account management</h1><br> -->
+  <div id="account-details">
+      <div>
+          <table>
+              <thead>
+                  <tr>
+                    <th>Email</th>
+                      <th>Is active</th>
+                      <th>AC balance</th>
+                      <th>Pay</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let a of bindingAccounts">
+                      <td>{{a.email}}</td>
+                      <td>{{a.isActive}}</td>
+                      <td *ngIf="isTourist(a.role)">{{a.adventureCoins}}</td>
+                      <td class="pay" *ngIf="isTourist(a.role) && a.isActive">
+                          <input type="number" [(ngModel)]="a.paymentCoins" style="width: 70px" min="1">
+                          <input type="button" (click)="pay(a)" value="Pay"/>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>

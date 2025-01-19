@@ -1,0 +1,72 @@
+#blog-details {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* Space between each card */
+}
+
+.comment-card {
+    margin: 8px 0;
+}
+
+.mat-card {
+    padding: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mat-card-content p {
+    margin: 0;
+}
+
+.mat-card-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.carousel-container {
+    max-width: 95%; 
+    margin: auto; 
+    padding: 20px;
+    text-align: center;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.carousel {
+    display: flex;
+    overflow-x: auto; /* Omogućava horizontalno skrolovanje */
+    gap: 4vh; 
+}
+.tour-header{
+    text-align: left;
+    margin-bottom: 15px;
+    margin-left: -15px;
+}
+.card {
+    min-width: 460px; /* Minimalna širina kartice */
+    background-color: #DBFCFF; /* Pozadina kartice */
+    border-radius: 10px; /* Zaobljeni uglovi */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Senka */
+    overflow: hidden; /* Sakriva sadržaj koji izlazi iz kartice */
+    transition: transform 0.3s; /* Animacija pri hover-u */
+    margin-bottom: 15px;
+    margin-top: 15px;
+    margin-left: 5px;
+}
+
+.card:hover {
+    transform: scale(1.05); /* Uvećava karticu pri hover-u */
+}
+
+.card img {
+    width: 100%; 
+    height: 400px; 
+    object-fit: cover; 
+}
+
+.carousel-text{
+    color: #031926;
+}

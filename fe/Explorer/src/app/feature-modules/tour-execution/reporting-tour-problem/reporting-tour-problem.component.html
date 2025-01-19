@@ -1,0 +1,58 @@
+<form [formGroup]="problemReportForm">
+    <div>
+        <mat-form-field>
+            <mat-label>Tour Name</mat-label>
+            <input matInput formControlName="tourName" type="text" />
+        </mat-form-field>
+        
+        <mat-form-field>
+            <mat-label>Category</mat-label>
+            <mat-select formControlName="category">
+                <mat-option value="Internet">Internet connection</mat-option>
+                <mat-option value="Transport">Transport</mat-option>
+                <mat-option value="Accommodation">Accommodation</mat-option>
+                <mat-option value="Guide">Guide</mat-option>
+                <mat-option value="Other">Other</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Priority</mat-label>
+            <mat-select formControlName="priority">
+                <mat-option value="0">Low</mat-option>
+                <mat-option value="1">Medium</mat-option>
+                <mat-option value="2">High</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Description</mat-label>
+            <textarea matInput
+                      cdkTextareaAutosize
+                      cdkAutosizeMinRows="1"
+                      formControlName="description"
+                      cdkAutosizeMaxRows="5"></textarea>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="narrow-date-picker">
+            <mat-label>Date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="date" placeholder="Choose date">
+            <mat-datepicker-toggle matSuffix [for]="picker">
+              <mat-icon matDatepickerToggleIcon>calendar_today</mat-icon>
+            </mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="problemReportForm.get('date')?.invalid">
+              Invalid date format. Use MM/dd/yyyy.
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="narrow-date-picker">
+            <mat-label>Time</mat-label>
+            <input matInput formControlName="time" type="time" placeholder="Choose time">
+            <mat-error *ngIf="problemReportForm.get('time')?.invalid">
+              Invalid time format. Use HH:mm.
+            </mat-error>
+          </mat-form-field>
+
+        <button color="primary" type="submit" (click)="createReport()" mat-raised-button>Done</button>
+    </div>
+</form>

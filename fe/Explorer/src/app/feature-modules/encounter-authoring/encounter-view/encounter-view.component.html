@@ -1,0 +1,122 @@
+<div>
+  <h2 class="main-header">Encounters</h2>
+  <div *ngIf="IsUserAdmin">
+    <button (click)="toggleEncountersView()">Toggle View</button>
+  </div>
+
+    <div *ngIf="ToShowAllEncounters" class="encounter-container">
+      <div class="encounters-list">
+      <div *ngIf="encounters.length > 0">
+    <div *ngFor="let encounter of encounters" class="encounter-card">
+
+      <div class="card-header" (click)="toggleExpand(encounter.id)">
+        <img *ngIf="encounter.encounterType == 1" class="img-type" src="/assets/images/hidden.png">
+        <img *ngIf="encounter.encounterType == 2" class="img-type" src="/assets/images/misc.png">
+        <img *ngIf="encounter.encounterType == 0" class="img-type" src="/assets/images/social.png">
+        <h3 class="enc-header">{{ encounter.name }}</h3>
+        <button class="button-enc" *ngIf="selectedCoordinates && loggedInUser.role === 'tourist'" (click)="activateEncounter(encounter.id)">Start</button>
+        <button class="toggle-button">
+          {{ expandedEncounterId === encounter.id ? '▲' : '▼' }}
+        </button>
+      </div>
+      
+
+
+      <div class="card-body" [ngClass]="{ 'expanded': expandedEncounterId === encounter.id }">
+        <hr class="fading-hr">
+        <p>{{ encounter.description }}</p>
+       
+        <p><strong>Type:</strong> {{ getEncounterTypeLabel(encounter.encounterType) }}</p>
+        <p *ngIf="encounter.isTourRequired !== null">
+          <strong>Is Tour Required:</strong>
+          {{ encounter.isTourRequired ? 'Yes' : 'No' }}
+        </p>
+        <p *ngIf="encounter.instructions">
+          <strong>Instructions:</strong> {{ encounter.instructions }}
+        </p>
+        <p *ngIf="encounter.peopleNumb">
+          <strong>People Required:</strong> {{ encounter.peopleNumb }}
+        </p>
+        <div *ngIf="selectedCoordinates && loggedInUser.role === 'tourist'">
+          <p><strong>Your Coordinates:</strong>{{ selectedCoordinates.lat }}, {{ selectedCoordinates.lng }}</p>
+        </div>
+
+        <div class="xp-style">
+          <p>{{ encounter.totalXp }}XP</p>
+        </div>
+      </div>
+
+    </div>
+    </div>
+    <div *ngIf="encounters.length == 0">
+      <p>No encounters found.</p>
+    </div>
+  </div>
+    
+    
+
+
+
+
+
+
+
+
+    <div class="map-container">
+      <xp-map (mapClick)="onMapClick($event)" [encounters]="encounterMarkers" [inputMode]="1"></xp-map>
+    </div>
+  </div>
+
+  <div *ngIf="!ToShowAllEncounters" class="encounter-container">
+    <div class="encounters-list">
+      <div *ngIf="touristEncounters.length > 0">
+        <div *ngFor="let encounter of touristEncounters" class="encounter-card">
+          <h3>{{ encounter.name }}</h3>
+          <p>{{ encounter.description }}</p>
+          <p><strong>XP:</strong> {{ encounter.totalXp }}</p>
+          <p><strong>Type:</strong> {{ getEncounterTypeLabel(encounter.encounterType) }}</p>
+          <p *ngIf="encounter.isTourRequired !== null"><strong>Is Tour Required:</strong> {{ encounter.isTourRequired ? 'Yes' : 'No' }}</p>
+          <p *ngIf="encounter.instructions"><strong>Instructions:</strong> {{ encounter.instructions }}</p>
+          <p *ngIf="encounter.peopleNumb"><strong>People Required:</strong> {{ encounter.peopleNumb }}</p>
+
+          <div *ngIf="encounter.touristRequestStatus == 1" class="status-pending">
+            <button (click)="updateTouristEncounter(encounter, true)">Approve</button>
+            <button (click)="updateTouristEncounter(encounter, false)">Reject</button>
+          </div>
+          <div *ngIf="encounter.touristRequestStatus == 0" class="status-approved">
+            APPROVED
+          </div>
+          <div *ngIf="encounter.touristRequestStatus == 2" class="status-rejected">
+            REJECTED
+          </div>
+        </div>
+      </div>
+      <div *ngIf="touristEncounters.length == 0">
+        <p>No encounters found.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--<div *ngIf="ToShowAllEncounters" class="encounter-container">
+    <div class="encounters-list">
+      <div *ngIf="encounters.length > 0">
+        <div *ngFor="let encounter of encounters" class="encounter-card">
+          <h3>{{ encounter.name }}</h3>
+          <p>{{ encounter.description }}</p>
+          <p><strong>XP:</strong> {{ encounter.totalXp }}</p>
+          <p><strong>Type:</strong> {{ getEncounterTypeLabel(encounter.encounterType) }}</p>
+          <p *ngIf="encounter.isTourRequired !== null"><strong>Is Tour Required:</strong> {{ encounter.isTourRequired ? 'Yes' : 'No' }}</p>
+          <p *ngIf="encounter.instructions"><strong>Instructions:</strong> {{ encounter.instructions }}</p>
+          <p *ngIf="encounter.peopleNumb"><strong>People Required:</strong> {{ encounter.peopleNumb }}</p>
+          <div *ngIf="selectedCoordinates && loggedInUser.role === 'tourist'">
+            <p><strong>Your Coordinates:</strong> {{ selectedCoordinates.lat }}, {{ selectedCoordinates.lng }}</p>
+            <button (click)="activateEncounter(encounter.id)">Activate Encounter</button>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="encounters.length == 0">
+        <p>No encounters found.</p>
+      </div>
+    </div>-->

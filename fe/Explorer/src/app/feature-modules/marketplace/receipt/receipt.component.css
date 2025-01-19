@@ -1,0 +1,73 @@
+.receipt-container {
+  margin: 20px auto;
+  max-width: 400px;
+  text-align: left;
+  font-family: "Courier New", Courier, monospace; /* Monospaced font for receipt look */
+  border: 1px solid #ddd;
+  padding: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.receipt-header {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.divider {
+  border: none;
+  border-top: 2px dashed #aaa;
+  margin: 10px 0;
+}
+
+.receipt-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.receipt-item {
+  margin-bottom: 10px;
+}
+
+.receipt-item p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.receipt-value {
+  float: right;
+  font-weight: bold;
+}
+
+.item-divider {
+  border: none;
+  border-top: 1px dotted #ccc;
+  margin: 5px 0;
+}
+
+.receipt-total {
+  font-weight: bold;
+  font-size: 16px;
+  text-align: right;
+  margin-top: 10px;
+}
+
+.no-records {
+  text-align: center;
+  font-style: italic;
+  color: #555;
+}
+
+.thank-you {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 10px;
+  color: #333;
+  font-weight: bold;
+}

@@ -1,0 +1,44 @@
+<img class="pic-design" src="assets/images/bundle.jpg" >
+    <div class="img-cover">
+      <h1 *ngIf="loggedInUser.role === 'author'" class="header_my_profile">Your tour bundles</h1>
+      <h1 *ngIf="loggedInUser.role !== 'author'" class="header_my_profile">Choose the tour bundle that suits you best</h1>
+      <button *ngIf="loggedInUser.role === 'author'" (click)="addBundle()">Add new bundle</button>
+    </div>
+<div class="bundles">
+    <h3 *ngIf="bundles.length === 0 && loggedInUser.role !== 'author'">There are currently no tour bundles available!</h3>
+    <div class="bundle" *ngFor="let b of bundles">
+        <button *ngIf="loggedInUser.role === 'author'" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" class="menu-button">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" class="top-right-menu">
+            <button mat-menu-item (click)="onEditClicked(b)" >
+              <mat-icon>edit</mat-icon>
+              <span>Edit</span>
+            </button>
+            <button *ngIf="b.status === 0" mat-menu-item (click)="deleteBundle(b)">
+              <mat-icon>delete</mat-icon>
+              <span>Delete</span>
+            </button>
+            <button *ngIf="b.status === 0" mat-menu-item (click)="publishBundle(b)">
+                <mat-icon>publish</mat-icon>
+                <span>Publish</span>
+            </button>
+            <button *ngIf="b.status !== 2" mat-menu-item (click)="archiveBundle(b)">
+                <mat-icon>archive</mat-icon>
+                <span>Archive</span>
+            </button>
+        </mat-menu>
+
+        <h1 *ngIf="isBundlePurchased(b.products)" class="buy">purchased</h1>
+        <h2>{{b.name}}</h2>
+        <p>Price: <b> {{b.price}} AC </b></p>
+        <p>Status: <b> {{displayStatus(b.status)}} </b></p>
+        <p>Products:</p>
+        <div class="product" *ngFor="let p of b.products">
+            <h3>{{tours.get(p.tourId)?.name}}</h3>
+            <p>Description: {{tours.get(p.tourId)?.description}}</p>
+            <p>Price: {{p.price}} AC</p>
+        </div>
+        <button class="add-to-cart" *ngIf="loggedInUser.role !== 'author' && !isBundlePurchased(b.products)" (click)="onAddToCart(b)" [disabled]="checkIsBundleInCart(b.id)">Add to cart 🛒</button>
+    </div>
+</div>

@@ -1,0 +1,213 @@
+@font-face {
+    font-family: 'Lulo Clean';
+    src: url('src/assets/fonts/Lulo Clean W01 One Bold.ttf') format('truetype');
+}
+img{
+    width: 20vh;
+    height: 8vh;
+}
+
+#nav-bar {
+    background-color: #031926;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    gap: 4%;
+    flex-wrap: nowrap;
+    position: sticky;
+    top: 0;
+    z-index: 2000;
+
+}
+
+.nav-buttons{
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+
+.wheelButton{
+    box-shadow: none ; /* Remove any box shadow */
+    border: none; /* Remove border if any */
+    border-radius: 0 ; /* Remove rounded corners */
+    width: 5vh;
+    height: 5vh;
+    margin-left: 10px;
+    background-color: #031926;
+}
+
+.wheelButton-img{
+    width: 5vh;
+    height: 5vh;
+    margin-left: -15px;
+    margin-top: -10px;
+}
+.button {
+    background-color: #031926; /* Base background color */
+    color: #DBFCFF ; /* Text color */
+    box-shadow: none ; /* Remove any box shadow */
+    border: none; /* Remove border if any */
+    border-radius: 0 ; /* Remove rounded corners */
+    font-family: 'Lulo Clean', serif ;
+    font-size: 10px ;
+    width: auto;
+    height: 5vh;
+    margin-left: 10px;
+    border: 1px solid rgb(242, 209, 119, 0);
+}
+
+.cart-button{
+    background-color: #031926;
+    color: #DBFCFF ; 
+}
+
+.cart-button:hover {
+    background-color: #0AADFF;
+    color: #031926;
+    box-shadow: none;
+}
+
+.button:hover {
+    background-color: #0AADFF;
+    color: #031926;
+    box-shadow: none;
+}
+/*#F2D177*/
+.button-logout {
+    background-color: #F2D177;
+    color: #031926;
+    box-shadow: none;
+    border: none;
+    border-radius: 27px;
+    font-family: 'Lulo Clean', serif;
+    font-size: 10px;
+    height: 5vh;
+    margin-left: 10px;
+    border: 1px solid rgb(242, 209, 119, 0);
+}
+
+.button-logout:hover {
+    background-color: #DBFCFF;
+    color: #031926 ;
+    box-shadow: none ;
+    border: 1px solid rgb(242, 209, 119, 0);
+}
+
+.button-login {
+    background-color: #031926 ;
+    color: #F2D177 ;
+    box-shadow: none ;
+    border: 2px solid #F2D177 ;
+    border-radius: 27px ;
+    font-family: 'Lulo Clean', serif;
+    font-size: 10px ;
+    height: 5vh;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.button-login:hover {
+    background-color: #F2D177 ;
+    color: #031926 ;
+    box-shadow: none ;
+}
+
+
+.notification-button {
+    color: #DBFCFF; /* Boja teksta */
+    background-color: #031926; /* Boja pozadine */
+    border-radius: 50%; /* Zaokruženo dugme */
+    width: 40px; /* Širina dugmeta */
+    height: 40px; /* Visina dugmeta */
+    justify-content: center; /* Centriranje horizontalno */
+    align-items: center; /* Centriranje vertikalno */
+    position: relative;
+    top: 2px;
+    left: -5px;
+    padding: 0; /* Poništi padding da bi se osigurao krug */
+    cursor: pointer; /* Pokaži da je dugme kl clickable */
+    margin: 5px 10px;
+}
+
+  .notification-button:hover{
+    background-color: #0AADFF;
+    color: #031926 ;
+  }
+
+  /*
+  .notification-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 10px;
+}
+  */
+
+/* Dropdown container styling */
+.dropdown {
+    position: relative; /* Ensure the dropdown menu positions relative to the button */
+
+}
+
+/* Base dropdown menu styling */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 140%; /* Position below the button */
+    left: -30px;
+    background-color: #031926;
+    color: #DBFCFF;
+    width: 210px;
+    border-radius: 5px;
+    z-index: 2001;
+    height: auto;
+    padding: 10px;
+}
+
+/* Show class to override display */
+.dropdown-menu.show {
+    display: block; /* Makes the dropdown visible */
+}
+
+/* Dropdown button styling */
+.dropdown-menu .button {
+    width: 90%;
+    text-align: center;
+    color: #DBFCFF;
+    background-color: transparent;
+}
+
+.dropdown-menu .button:hover {
+    background-color: #0AADFF;
+    color: #031926;
+}
+
+
+.notification-menu{
+    display: none;
+    width: 70vh;
+    display: none;
+    position: absolute;
+    top: 110%; /* Position below the button */
+    left: -66vh;
+    background-color: #031926;
+    color: #DBFCFF;
+    border-radius: 5px;
+    z-index: 2001;
+    height: auto;
+    padding: 10px;
+
+}
+
+.notification-menu.show{
+    display: block;
+
+}

@@ -1,0 +1,49 @@
+<form [formGroup]="keyPointForm" class="keypoint-form">
+    <div class="form-container">
+        <h3>Manage key point</h3>
+        <mat-form-field class="form-field">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name" matTooltip="Enter name of keypoint" type="text"/>
+            <mat-error *ngIf="keyPointForm.get('name')?.hasError('required')">
+                Name is required.
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-field">
+            <mat-label>Description</mat-label>
+            <textarea matInput
+                      cdkTextareaAutosize
+                      cdkAutosizeMinRows="1"
+                      formControlName="description"
+                      cdkAutosizeMaxRows="5"
+                      matTooltip="Provide a short description of the keypoint"></textarea>
+            <mat-error *ngIf="keyPointForm.get('description')?.hasError('required')">
+                Description is required.
+            </mat-error>
+        </mat-form-field>
+
+        <p *ngIf="shouldEdit">-If you want to edit position, first click on map to select new position and click edit button on key poins card-</p>
+        <mat-form-field class="form-field">
+            <mat-label>Latitude</mat-label>
+            <input readonly matInput formControlName="latitude" type="number"  matTooltip="Click on Map" />
+        </mat-form-field>
+
+        <mat-form-field class="form-field">
+            <mat-label>Longitude</mat-label>
+            <input readonly matInput formControlName="longitude" type="number"  matTooltip="Click on Map" />
+        </mat-form-field>
+        
+
+            <mat-label>Do you want to make this key point public?</mat-label>
+            
+            <mat-checkbox formControlName="isPublic"></mat-checkbox>
+
+        <div class="file-upload">
+            <input type="file" (change)="onFileSelected($event)" />
+        </div>
+
+        <div class="submit-btn">
+            <button type="submit" (click)="submit()">Submit</button>
+        </div>
+    </div>
+</form>

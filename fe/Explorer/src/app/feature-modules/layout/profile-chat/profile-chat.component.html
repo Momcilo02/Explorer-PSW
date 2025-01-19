@@ -1,0 +1,7 @@
+<div class="chat-container">
+  <h1>Chat with: {{secondUsername}}</h1>
+
+  <div class="message-card" *ngFor="let message of messages">
+    <xp-profile-message [message]="message" [loggedInUser]="loggedInUser" ></xp-profile-message>
+  </div>
+</div>

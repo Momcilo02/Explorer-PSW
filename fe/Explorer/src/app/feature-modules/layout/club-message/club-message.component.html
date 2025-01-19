@@ -1,0 +1,34 @@
+<div class="message-card">
+  <div class="message-header">
+    <div class="sender-info">
+      <strong>
+        {{ loggedInUser.id === message.senderId ? 'Me' : message.senderName + ' ' + message.senderSurname }}
+      </strong>
+    </div>
+
+      <div class="action-buttons">
+        <button *ngIf="loggedInUser.id == message.senderId" (click)="onEditClicked(message)" class="edit">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button *ngIf="loggedInUser.id == touristClubOwnerId" (click)="onDeleteClicked(message.id)" class="delete">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+      <div class="date">{{ message.sentDate | date: 'short' }}</div>
+  </div>
+  <div class="message-content">
+    <p>{{ message.content }}</p>
+  </div>
+  <div class="message-footer">
+    <button
+      (click)="onLikeClicked(message)"
+      mat-icon-button
+      class="like-button">
+      <mat-icon
+      class="thumb-icon"
+      [ngStyle]="{'color': message.likedByLoggedUser ? '#dea404' : 'gray'}">
+      thumb_up</mat-icon>
+    </button>
+    <span>{{ message.likesCount }}</span>
+  </div>
+</div>

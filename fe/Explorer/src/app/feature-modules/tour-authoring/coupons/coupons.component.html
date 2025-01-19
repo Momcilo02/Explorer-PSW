@@ -1,0 +1,44 @@
+<div id="coupons">
+    <img class="pic-design" src="/assets/images/coupons.jpg" >
+    <div class="img-cover">
+      <h1 class="header_my_profile">My coupons</h1>
+      <button color="primary" (click)="onAddClicked()">Add new coupon</button>
+    </div>
+    
+    <div id="coupon-details" class="card-container">
+        <div class="card" *ngFor="let item of coupons">
+          <div class="card-header">
+            <h3>{{ item.identifier }}</h3>
+          </div>
+          <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" class="menu-button">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+
+          <mat-menu #menu="matMenu" class="top-right-menu">
+            <button mat-menu-item (click)="onEditClicked(item)">
+              <mat-icon>edit</mat-icon>
+              <span>Edit</span>
+            </button>
+            <button mat-menu-item (click)="deleteCoupon(item)">
+              <mat-icon>delete</mat-icon>
+              <span>Delete</span>
+            </button>
+          </mat-menu>
+          <div class="card-body">
+            <p><strong>Percentage:</strong> {{ item.percentage }}%</p>
+            <p><strong>Expiration Date:</strong> {{ item.expirationDate | date: 'shortDate' }}</p>
+            <p><strong>Tours Eligible:</strong> {{ item.toursEligible }}</p>
+          </div>
+        </div>
+      </div>
+      
+</div>
+<div class="modal" *ngIf="shouldRenderCouponsForm" (click)="closeModal()" >
+    <div class="modal-content" (click)="$event.stopPropagation()">
+        <span class="close" (click)="closeModal()">&times;</span>
+        <xp-coupons-form *ngIf="shouldRenderCouponsForm"  [shouldAdd]="shouldAdd" [shouldEdit]="shouldEdit" (couponUpdated)="closeModal()" [selectedCoupon]="selectedCoupon" #couponsForm></xp-coupons-form>
+    </div>
+</div>
+    <!-- <div>
+        <xp-coupons-form *ngIf="shouldRenderCouponsForm" [shouldAdd]="shouldAdd" [shouldEdit]="shouldEdit" (couponUpdated)="getCoupons()" [selectedCoupon]="selectedCoupon" #couponsForm></xp-coupons-form>
+    </div> -->

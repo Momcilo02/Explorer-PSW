@@ -1,0 +1,259 @@
+<!--<div id="reported-tour-problems" class="flex-col mt-10">
+  <p class="font-family-header">Reported Tour Problems</p>
+  <hr />
+
+  <div id="reported-tour-problems-details" class="flex-row gap-50 align-start">
+    <div *ngIf="reportedTourProblems.length > 0; else noProblems">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Tour Name</th>
+            <th>Tourist</th>
+            <th>Category</th>
+            <th>Priority</th>
+            <th>Description</th>
+            <th>Time</th>
+            <th>Status</th>
+            <th>Solving Deadline</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="let rtp of reportedTourProblems"
+            (click)="selectReport(rtp)"
+            class="hover-row">
+            <td>{{ rtp.id }}</td>
+            <td>{{ rtp.tourName }}</td>
+            <td>{{ usernamesMap[rtp.touristId]}}</td>
+            <td>{{ rtp.category }}</td>
+            <td>{{ getPriorityLabel(rtp.priority) }}</td>
+            <td>{{ rtp.description }}</td>
+            <td>{{ rtp.time | date: 'dd.MM.yyyy, HH:mm' }}</td>
+            <td>{{ getStatusLabel(rtp.status)  }}
+              <span *ngIf="rtp.status === 3">({{ rtp.comment }})</span></td>
+            <td>
+              <span *ngIf="rtp.status === 1 && rtp.solvingDeadline && rtp.solvingDeadline !== '0001-01-01T00:00:00'; else showDatePicker">
+                {{ rtp.solvingDeadline | date: 'dd.MM.yyyy' }}
+              </span>
+              <span *ngIf="(rtp.status === 0 || rtp.status === 1) && (!rtp.solvingDeadline || rtp.solvingDeadline === '0001-01-01T00:00:00') && loggedInUser.role !== 'administrator'">
+                Deadline not set
+              </span>
+
+              <ng-template #showDatePicker>
+                <ng-container *ngIf="loggedInUser.role === 'administrator'">
+                  <xp-solving-deadline-form
+                    [reportedTourProblemId]="rtp.id"
+                    (tourProblemReportUpdated)="onTourProblemReportUpdated($event)">
+                  </xp-solving-deadline-form>
+                </ng-container>
+              </ng-template>
+            </td>
+
+            <td *ngIf="loggedInUser.role=='tourist' && rtp.status !== 4 && rtp.status !== 3 && rtp.status !== 2">
+              <span>
+                <button (click)="markAsSolved(rtp.id)">Solved</button>
+                <button (click)="markAsUnsolved(rtp.id)" >Unsolved</button>
+              </span>
+              <div *ngIf="isCommentVisible[rtp.id]">
+                <textarea [(ngModel)]="unsolvedComment[rtp.id]" not required placeholder="Enter additional comment here"></textarea>
+                <button (click)="setAsSolvedOrUnsolved(rtp.id, false)">Add Comment</button>
+              </div>
+            </td>
+
+            <td  *ngIf="canPenalizeAndClose(rtp) && rtp.solvingDeadline !== '0001-01-01T00:00:00'">
+              <button (click)="penalizeAuthorAndCloseProblem(rtp)">
+                  Close and Penalize
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div *ngIf="selectedReport" class="main-messages">
+      <div class="proba" *ngIf="selectedReport.messages.length > 0; else noMessages">
+        <h4 style="margin-bottom: 20px;" class="font-family-header">Messages for Report ID: {{ selectedReport.id }}</h4>
+        <ul>
+          <li class="messages" *ngFor="let message of selectedReport.messages">
+            <p [ngClass]="{'message-right': message.userId === loggedInUser.id}" style="margin-left: -1px;" class="p-messages">
+              <strong>{{ usernamesMap[message.userId] || 'Korisnik' }}:</strong>
+            </p>
+            <p [ngClass]="{'message-right': message.userId === loggedInUser.id}" style="margin-bottom: 10px;" class="p-messages"> {{ message.content }}</p>
+          </li>
+        </ul>
+      </div>
+
+      <ng-template #noMessages>
+        <p class="messages" >No messages for this report.</p>
+      </ng-template>
+      <div class="mess-submit">
+      <form (ngSubmit)="addMessage()" class="form-submit">
+        <input
+          id="newMessage"
+          type="text"
+          [(ngModel)]="newMessageContent"
+          name="messageContent"
+          required
+          placeholder="Enter your message here"
+        />
+        <button type="submit" class="form-button">
+          Add Message
+        </button>
+      </form>
+    </div>
+    </div>
+
+    <ng-template #noProblems>
+      <p>No reported problems for tours at the moment.</p>
+    </ng-template>
+  </div>
+</div>-->
+<div class="photo-role">
+  <img class="pic-design" src="/assets/images/tour-report.jpg" >
+
+  <div class="img-cover">
+    <h1 class="header_my_profile">Reported Tour Problems</h1>
+  </div>
+</div>
+
+<div  class="main-report-div">
+  <div *ngFor="let rtp of reportedTourProblems">
+    <div *ngIf="reportedTourProblems.length > 0; else noProblems">
+      <div class="report-card">
+          <div class="report-details">
+            <div class="header-for-tour">
+              <div style="display: flex;flex-direction: row;">
+                <h1>{{ rtp.tourName }}</h1>
+
+
+                  <div class="penalize-author">
+                    <td *ngIf="loggedInUser.role=='tourist' && rtp.status !== 4 && rtp.status !== 3 && rtp.status !== 2">
+                      <span>
+                        <button class="solved-button" (click)="markAsSolved(rtp.id)">Solved</button>
+                        <button class="unsolved-button" (click)="markAsUnsolved(rtp.id)" >Unsolved</button>
+                      </span>
+                      <div *ngIf="isCommentVisible[rtp.id]">
+                        <textarea [(ngModel)]="unsolvedComment[rtp.id]" not required placeholder="Enter additional comment here"></textarea>
+                        <button (click)="setAsSolvedOrUnsolved(rtp.id, false)">Add Comment</button>
+                      </div>
+                    </td>
+
+                    <td  *ngIf="canPenalizeAndClose(rtp) && rtp.solvingDeadline !== '0001-01-01T00:00:00'">
+                      <button class="unsolved-button" (click)="penalizeAuthorAndCloseProblem(rtp)">
+                          Close and Penalize
+                      </button>
+                    </td>
+                </div>
+              </div>
+              <div class="admin-date">
+                <!-- <span *ngIf="(rtp.status === 3 || rtp.status === 1 || rtp.status === 4) && rtp.solvingDeadline && rtp.solvingDeadline !== '0001-01-01T00:00:00'; else showDatePicker">
+                  {{ rtp.solvingDeadline | date: 'dd.MM.yyyy' }}
+                </span>
+                <span *ngIf="(rtp.status === 0 || rtp.status === 1) && (!rtp.solvingDeadline || rtp.solvingDeadline === '0001-01-01T00:00:00') && loggedInUser.role !== 'administrator'">
+                  Deadline not set
+                </span>
+               -->
+               <span *ngIf="rtp.solvingDeadline && rtp.solvingDeadline !== '0001-01-01T00:00:00'; else noDeadline">
+                Deadline: {{ rtp.solvingDeadline | date: 'MM/dd/yyyy' }}
+              </span>
+
+              <ng-template #noDeadline>
+
+                <ng-container *ngIf="rtp.status === 0 && loggedInUser.role === 'administrator'; else otherUsers">
+                  <xp-solving-deadline-form [reportedTourProblemId]="rtp.id" (tourProblemReportUpdated)="onTourProblemReportUpdated($event)"></xp-solving-deadline-form>
+                </ng-container>
+
+                <ng-template #otherUsers>
+                  Deadline not set
+                </ng-template>
+
+              </ng-template>
+
+
+              <!-- <span *ngIf="(rtp.status === 0 || rtp.status === 1) && (rtp.solvingDeadline == null || rtp.solvingDeadline === '0001-01-01T00:00:00') && loggedInUser.role !== 'administrator'">
+                Deadline not set
+              </span> -->
+
+                <ng-template #showDatePicker>
+                  <ng-container *ngIf="loggedInUser.role === 'administrator'">
+                    <xp-solving-deadline-form
+                      [reportedTourProblemId]="rtp.id"
+                      (tourProblemReportUpdated)="onTourProblemReportUpdated($event)">
+                    </xp-solving-deadline-form>
+                  </ng-container>
+                </ng-template>
+              </div>
+            </div>
+
+              <p style="margin-top: 4vh;">{{ rtp.description }}</p>
+
+              <p><b style="color: #0AADFF;">Priority:</b> {{ getPriorityLabel(rtp.priority) }}</p>
+              <p><b style="color: #0AADFF;">Category:</b> {{ rtp.category }}</p>
+
+              <p><b style="color: #0AADFF;">Status:</b> {{ getStatusLabel(rtp.status)  }}</p>
+              <span *ngIf="rtp.status === 3"><p><b style="color: #0AADFF;">Additional comment:</b>"{{ rtp.comment }}"</span>
+              <button (click)="openModal(rtp)" style="border-radius: 25px;margin-top: 10px;">See comments</button>
+
+
+
+              <div class="created-by">
+                <p><b style="color: #0AADFF;">created by</b> {{usernamesMap[rtp.touristId]}} <b style="color: #0AADFF;">at</b> {{ rtp.time | date: 'dd.MM.yyyy, HH:mm' }}</p>
+              </div>
+      </div>
+    </div>
+  </div>
+
+
+    <ng-template #noProblems>
+      <p>No reported problems for tours at the moment.</p>
+    </ng-template>
+
+  </div>
+
+
+
+
+  <!-- Modal za poruke -->
+<div id="messageModal" class="modal" *ngIf="isModalOpen">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <h3 style="margin-bottom: 10px;justify-content: center;display: flex;" >Messages</h3>
+        <div class="horizontal-line"></div>
+    <div *ngIf="selectedReport" class="main-messages">
+      <div class="proba" *ngIf="selectedReport.messages.length > 0; else noMessages">
+
+        <ul>
+          <li [ngClass]="{'message-right-main': message.userId === loggedInUser.id}" class="messages" *ngFor="let message of selectedReport.messages">
+            <p [ngClass]="{'message-right': message.userId === loggedInUser.id}" style="margin-left: -1px;" class="p-messages">
+              <strong>{{ usernamesMap[message.userId] || 'Korisnik' }}:</strong>
+            </p>
+            <p style="margin-bottom: 10px;" class="p-messages"> {{ message.content }}</p>
+          </li>
+        </ul>
+      </div>
+
+      <ng-template #noMessages>
+        <p class="no-messages" >No messages for this report</p>
+      </ng-template>
+      <div class="mess-submit">
+      <form (ngSubmit)="addMessage()" class="form-submit">
+        <input
+          id="newMessage"
+          type="text"
+          [(ngModel)]="newMessageContent"
+          name="messageContent"
+          required
+          class="message-input"
+          placeholder="Enter your message here"
+        />
+        <button type="submit" class="form-button">
+          Send
+        </button>
+      </form>
+    </div>
+    </div>
+  </div>
+</div>
+
+</div>

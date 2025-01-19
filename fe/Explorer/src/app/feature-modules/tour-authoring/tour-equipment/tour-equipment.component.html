@@ -1,0 +1,57 @@
+<div id="tour-equipment">
+  <h2>Manage tour Equipments</h2>
+  <div class="container">
+    <div>
+      <caption><h3>Remaining Equipment</h3></caption>
+      <table>
+          <thead>
+              <tr>
+                  <th>Naziv</th>
+                  <th>Opis</th>
+                  <th></th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let eq of all_equipment">
+                  <td>{{eq.name}}</td>
+                  <td>{{eq.description}}</td>
+                  <!-- <td><input type="checkbox" id="some-id" name="{{eq.name}}"  [checked]="1 == 1"></td> -->
+    
+                  <button color="primary" (click)="addEquipment(eq)"  matTooltip="Add equipment" mat-icon-button>
+                    <mat-icon>arrow_right</mat-icon>
+                  </button>
+    
+              </tr>
+          </tbody>
+      </table>
+    </div>
+
+  <div>
+    <caption><h3>Added Equipment</h3></caption>
+    <table>
+      
+        <thead>
+            <tr>
+                <th>Naziv</th>
+                <th>Opis</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let eq of added_equipment">
+                <td>{{eq.name}}</td>
+                <td>{{eq.description}}</td>
+                <!-- <td><input type="checkbox" id="some-id" name="{{eq.name}}"  [checked]="1 == 1"></td> -->
+
+                <button color="accent" (click)="deleteEquipment(eq)" matTooltip="Delete equipment" mat-icon-button>
+                  <mat-icon>delete</mat-icon>
+                </button>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+  </div>
+<button class="submit-equipment" (click)="updateTourEquipment()" >Save changes</button>
+
+</div>

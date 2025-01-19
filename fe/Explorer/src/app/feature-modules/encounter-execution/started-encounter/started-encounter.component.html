@@ -1,0 +1,92 @@
+<div class="encounter-container">
+  <div class="encounters-list">
+    <div *ngIf="encounterExecutionWithDetails">
+      
+      <div class="encounter-card">
+        <div class="encounter-header">
+          <h2>{{ encounterExecutionWithDetails.encounter?.name }}</h2>
+          <p class="xp-design">{{ encounterExecutionWithDetails.encounter?.totalXp }} XP</p>
+        </div>
+        <p>{{ encounterExecutionWithDetails.encounter?.description }}</p>
+        <p style="margin-top: 5vh;margin-bottom: -15vh;" *ngIf="encounterExecutionWithDetails.encounter?.instructions">
+          <strong>Instructions:</strong> {{ encounterExecutionWithDetails.encounter?.instructions }}
+        </p>
+
+       
+        <p *ngIf="encounterExecutionWithDetails.encounter?.image"><strong>Image to find:</strong></p>
+        <p *ngIf="encounterExecutionWithDetails.encounter?.image">
+          <img
+            [src]="imageMap.get(hiddenEncounterImage)"
+            class="encounter-image"
+            (click)="openImageModal(imageMap.get(hiddenEncounterImage) ?? '')"
+          />
+        </p>
+
+        <p style="visibility: hidden;">
+          <strong>Status:</strong>
+          {{
+            encounterExecutionWithDetails.status === 0
+              ? 'Activated'
+              : encounterExecutionWithDetails.status === 1
+              ? 'Completed'
+              : 'Abandoned'
+          }}
+        </p>
+        <div class="table">
+          <table>
+            <tr>
+              <th>Type</th>
+              <td>{{ getEncounterTypeLabel(encounterExecutionWithDetails.encounter?.encounterType) }}</td>
+            </tr>
+            <tr>  
+              <th>Is Tour Required</th>
+              <td> {{ encounterExecutionWithDetails.encounter?.isTourRequired ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+              <th *ngIf="encounterExecutionWithDetails.encounter?.peopleNumb">People Required</th>
+              <td *ngIf="encounterExecutionWithDetails.encounter?.peopleNumb"> {{ encounterExecutionWithDetails.encounter?.peopleNumb }}</td>
+            </tr>
+            <tr>
+              <th *ngIf="encounterExecutionWithDetails.encounter?.peopleNumb">Number of Active Tourists:</th>
+              <td *ngIf="encounterExecutionWithDetails.encounter?.peopleNumb"> {{ encounterExecutionWithDetails.numberOfActiveTourists }}</td>
+            </tr>
+        </table>
+    </div>
+
+        <div *ngIf="selectedCoordinates && loggedInUser.role === 'administrator'">
+          <p>
+            <strong>Your Coordinates:</strong> {{ selectedCoordinates.lat }},
+            {{ selectedCoordinates.lng }}
+          </p>
+        </div>
+
+        <button
+        style="border-radius: 25px;"
+          *ngIf="encounterExecutionWithDetails.encounter?.encounterType == 2"
+          (click)="setToCompleted()"
+        >
+          Done
+        </button>
+      </div>
+    </div>
+    <div *ngIf="!encounterExecutionWithDetails">
+      <p>No encounters found.</p>
+    </div>
+  </div>
+
+  <div class="map-container">
+    <xp-map (mapClick)="onMapClick($event)" [encounters]="encounterMarkers"></xp-map>
+  </div>
+</div>
+
+<!-- Modal for Enlarged Image -->
+<div *ngIf="isModalOpen" class="modal">
+  <span class="close" (click)="closeImageModal()">&times;</span>
+  <img [src]="currentImageSrc" class="modal-content" />
+</div>
+
+<xp-rank-up
+  *ngIf="isRankUpModalOpen"
+  [rank]="userInfo.touristRank"
+  (close)="closeRankUpModal()"
+></xp-rank-up>

@@ -1,0 +1,10 @@
+<form (ngSubmit)="onSubmit()">
+    <label for="rating">Rating (1-5):</label>
+    <input id="rating" [(ngModel)]="rating" name="rating" type="number" min="1" max="5" required>
+  
+    <label for="comment">Comment (optional):</label>
+    <textarea id="comment" [(ngModel)]="comment" name="comment"></textarea>
+  
+    <button type="submit">Submit</button>
+</form>
+  

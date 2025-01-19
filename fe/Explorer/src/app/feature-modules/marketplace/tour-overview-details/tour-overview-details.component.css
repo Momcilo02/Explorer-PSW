@@ -1,0 +1,91 @@
+.tour-layout {
+  display: flex;
+  flex-direction: row; 
+  justify-content: space-between; 
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  max-width: 860px;
+  position: relative;
+  height: 560px;
+  border:1px solid black;
+}
+
+.tour-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  width: 380px;
+  max-height: 490px;
+  position: absolute;
+  overflow-y: auto;
+}
+
+.tour-keypoints {
+  flex: 1; 
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 500px;
+  overflow-y: auto; 
+  border-left: 2px solid #ddd; 
+  padding-left: 15px;
+  position: absolute;
+  top: 30px;
+  right: -60px;
+}
+
+
+.tour-keypoints {
+  margin-right: 100px;
+}
+
+.tour-details h1 {
+  font-size: 2em;
+  color: #253B34;
+  margin-bottom: 10px;
+}
+
+.tour-details h4 {
+  color: #555;
+  font-size: 1.2em;
+  margin: 5px 0;
+}
+
+.tour-details img{
+  width: 350px;
+  height: 220px;
+}
+
+.button_shop {
+  font-size: 1em;
+  font-weight: bold;
+  padding: 10px 20px;
+  color: #333;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  position: absolute;
+  bottom: 1vh;
+  left: 1vh;
+}
+
+.button_shop:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.button_shop:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.description-wrap{
+  display: flex;
+  flex-wrap: wrap;
+  width: 95%;
+}

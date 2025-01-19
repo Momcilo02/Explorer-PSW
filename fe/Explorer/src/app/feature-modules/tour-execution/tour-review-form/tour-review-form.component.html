@@ -1,0 +1,46 @@
+<form [formGroup]="reviewForm">
+    <div class="main-div">
+        
+   <!-- Tour ID Field (Automatically Displayed) -->
+    <div>
+        <h5>Tour Id</h5>
+        <p class="display-value">{{tourId}}</p>
+    </div>
+
+  <!-- Completed Percentage Field (Automatically Displayed) -->
+  <div>
+    <h5>Completed Precentage</h5>
+   <p class="display-value">{{completedPercentage}}</p>
+</div>
+
+  <!-- Visit Date Field (Automatically Displayed) -->
+  <div>
+    <h5>Visit Date</h5>
+    <p class="display-value">{{visitDate}}</p>
+</div>
+
+  <!-- Other Form Fields -->
+  <mat-form-field appearance="fill">
+    <mat-label>Rating</mat-label>
+    <input matInput formControlName="rating" type="number" min="1" max="5"/>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Comment</mat-label>
+    <textarea matInput
+      cdkTextareaAutosize
+      cdkAutosizeMinRows="1"
+      formControlName="comment"
+      cdkAutosizeMaxRows="5">
+    </textarea>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Images</mat-label>
+    <input matInput formControlName="images" type="text"/>
+  </mat-form-field>
+
+    <button *ngIf="!shouldEdit" color="primary" type="submit" (click)="addReview()" mat-raised-button>Done</button>
+    <button *ngIf="shouldEdit" color="primary" type="submit" (click)="updateReview()" mat-raised-button>Done</button>
+    </div>
+</form>

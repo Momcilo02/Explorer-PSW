@@ -1,0 +1,121 @@
+.pic-design {
+    width: 100%;
+    height: 45vh;
+    object-fit: cover;
+  }
+  
+  .img-cover {
+    width: 100%;
+    height: 45vh;
+    background-color: rgba(0, 0, 0, 0.65);
+    position: absolute;
+    top: 8vh;
+    left: 0;
+    z-index: 1000;
+    flex-direction: column;
+    display: flex;
+  }
+  
+  .header_my_profile {
+    position: relative;
+    z-index: 1100;
+    top: 30vh;
+    color: #DBFCFF;
+    margin-left: 40%;
+  }
+  
+  .keypoint-container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 100%;
+  }
+  
+  .keypoint-sidebar {
+    width: 25%;
+    background-color: #f4f4f4;
+    border-right: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    overflow-y: auto;
+  }
+  
+  .keypoint-header {
+    margin-bottom: 1rem;
+  }
+  
+  .keypoint-header h1 {
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .keypoint-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .keypoint-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-header h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #555;
+  }
+  
+  .card-body p {
+    margin: 0.5rem 0;
+    color: #666;
+  }
+  
+  .keypoint-image {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+  }
+  
+  .card-actions {
+    display: flex;
+    justify-content: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .keypoint-map {
+    flex-grow: 1;
+    position: relative;
+  }
+  
+  .keypoint-map xp-map {
+    height: 100%;
+    width: 100%;
+  }
+  
+  @media (max-width: 768px) {
+    .keypoint-container {
+      flex-direction: column;
+    }
+  
+    .keypoint-sidebar {
+      width: 100%;
+      border-right: none;
+      border-bottom: 1px solid #ddd;
+    }
+  
+    .keypoint-map {
+      height: 50%;
+    }
+  }
+  
+  .add-keypoint {
+    margin-top: 3%;
+    font-size: 16px;
+  }
+  

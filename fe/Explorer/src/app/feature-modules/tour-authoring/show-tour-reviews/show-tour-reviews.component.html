@@ -1,0 +1,47 @@
+<div id="review">
+    <p>Reviews</p>
+    <p>Average grade: {{ averageGrade }}</p>
+    <div id="review-details">
+        <div>
+            <table>
+                <thead>
+                    <tr>
+        
+                    <th>
+                        Tourist
+                    </th>
+        
+                    <th>
+                        Rating
+                    </th>
+        
+                    <th>
+                        Comment
+                    </th>
+        
+                    <th>
+                        Review date
+                    </th>
+        
+                    <th>
+                        Visit date
+                    </th>
+                    </tr>
+                </thead>
+        
+                <tbody>
+                    <tr *ngFor="let r of reviews">
+        
+                        <td>{{getUsername(r.id)}}</td>
+                        <td>{{r.rating}}</td>
+                        <td>{{r.comment}}</td>
+                        <td>{{r.reviewDate | date:'yyyy-MM-dd'}}</td>
+                        <td>{{r.visitDate | date:'yyyy-MM-dd'}}</td>
+                    </tr>
+                </tbody>
+        
+            </table>
+        </div>   
+    </div>
+
+</div>>

@@ -1,0 +1,158 @@
+<div class="photo-role">
+    <img class="pic-design" src="/assets/images/encounter.jpg" >
+  
+    <div class="img-cover">
+      <h1 class="header_my_profile">Create Your Encounter</h1>
+    </div>
+</div>
+
+<div class="main-page">
+    <form [formGroup]="encounterMainForm" class="formContainer">
+        <div class="form-div">
+
+            <h2 class="header-label">Add Encounter</h2>   
+            <hr class="fading-hr">
+
+        <div class="form-row">
+            <!-- Name -->
+            <div class="form-group">
+
+                <label class="label-design" *ngIf="loggedInUser.role == 'author'">Tour Name:</label>
+                <input 
+                style="margin-bottom: 20px;"
+                class="input-design" 
+                type="text" 
+                [value]="this.tourName" 
+                readonly 
+                *ngIf="loggedInUser.role == 'author'">
+
+                <label class="label-design">Encounter Name:</label>
+                <input style="margin-bottom: 20px;"  placeholder="Enter Name" class="input-design" type="text" id="name" formControlName="name" required>
+                
+                <label class="label-design">Activation range:</label>
+                <input  class="input-design" type="number" id="activateRange" formControlName="activateRange">
+            
+            </div>
+
+            
+            <div class="form-group">
+                <label class="label-design"  *ngIf="loggedInUser.role == 'author'">Is it needed for keypoint?</label>
+            <div>
+                <label>
+                    <input 
+                        *ngIf="loggedInUser.role == 'author'"
+                        type="radio" 
+                        formControlName="isTourRequired" 
+                        value="true"
+                    /> <span *ngIf="loggedInUser.role == 'author'">Yes</span>
+                </label>
+                <label>
+                    <input 
+                        *ngIf="loggedInUser.role == 'author'"
+                        style="margin-left: 20px; margin-bottom: 55px; margin-top: 15px;"
+                        type="radio" 
+                        formControlName="isTourRequired" 
+                        value="false"
+                    /> <span *ngIf="loggedInUser.role == 'author'">No</span>
+                </label>
+            </div>
+
+                <label style="margin-top: -25px;" class="label-design">Description: </label>
+                <textarea placeholder="Enter Description" style="height: 135px;" class="input-design" id="description" formControlName="description" rows="3" required></textarea>
+            </div>
+        </div>
+        
+
+        <div class="form-row">
+
+            <!-- Location -->
+            <div class="form-group">
+                <label class="label-design" for="longitude">Longitude:</label>
+                <input class="input-design" type="number" id="longitude" formControlName="longitude" step="any" required>
+            </div>
+
+            <div class="form-group">
+                <label class="label-design" for="latitude">Latitude:</label>
+                <input class="input-design" type="number" id="latitude" formControlName="latitude" step="any" required>
+            </div>
+            <div *ngIf="selectedEncounterType == 1">
+                <button (click)="LockCoordinates()"  [ngClass]="{ 'confirm-btn': !lockEncounterCoordinates, 'cancel-btn': lockEncounterCoordinates }" ></button>
+            </div>
+            
+        </div>
+
+        <div class="form-row">
+            <!-- Total XP -->
+            <div class="form-group">
+                <label class="label-design"  for="total_xp">Total XP:</label>
+                <input class="input-design" type="number" id="total_xp" formControlName="totalXp" required>
+            </div>
+            
+
+            
+
+            <!-- Encounter Type -->
+            <div class="form-group">
+                <label class="label-design" for="encounterType">Encounter Type:</label>
+                <select class="input-design" id="encounterType" formControlName="encounterType" (change)="onEncounterTypeChange()" required>
+                <option value="3">Select</option>
+                <option value="0">Social</option>
+                <option value="1">Hidden</option>
+                <option value="2">Misc</option>
+                </select>
+            </div>
+        </div>
+        
+            <!-- Prikaz za SOCIAL -->
+            <div *ngIf="selectedEncounterType == 0">
+                <form [formGroup]="encounterSocialForm">
+                    <div class="form-group">
+                        <label class="label-design">Number of people:</label>
+                        <input class="input-design"  type="number" id="peopleNumb" formControlName="peopleNumb">
+                    </div>
+                </form>
+            </div>
+
+            <!-- Prikaz za HIDDEN -->
+            <div *ngIf="selectedEncounterType == 1">
+                <form [formGroup]="encounterHiddenForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="label-design">Picture longitude:</label>
+                            <input class="input-design" type="number" id="imageLongitude" formControlName="imageLongitude" step="any">
+                        </div>
+                        <div class="form-group">
+                            <label class="label-design">Picture latitude:</label>
+                            <input class="input-design" type="number" id="imageLatitude" formControlName="imageLatitude" step="any">
+                        </div>
+                    </div>
+
+                    <div class="file-upload">
+                        <label class="label-design" >Encounter picture:</label>
+                        <input type="file" formControlName="image" (change)="onFileSelected($event)" />
+                    </div>
+                </form>
+            </div>
+        
+            <!-- Prikaz za MISC -->
+            <div *ngIf="selectedEncounterType == 2">
+                <form [formGroup]="encounterMiscForm">
+                    <div class="form-group">
+                        <label class="label-design">Instructions:</label>
+                        <textarea style="height: 90px;" placeholder="Enter Instructions" class="input-design" id="instructions" formControlName="instructions" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="button-position">
+                <button class="submit-design" type="button" (click)="onSubmit()">Submit</button>
+            </div>
+        </div>
+
+        <div class="map-size">
+            <xp-map (mapClick)="onMapClick($event)"></xp-map>
+            
+        </div>
+    </form>
+</div>

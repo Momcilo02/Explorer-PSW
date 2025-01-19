@@ -1,0 +1,69 @@
+<form [formGroup]="objectsForm" class="object-form">
+  <div class="form-container">
+    <h3>Manage object</h3>
+      <mat-form-field class="form-field">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" matTooltip="Enter name of object" type="text" />
+          <mat-error *ngIf="objectsForm.get('name')?.hasError('required')">
+            Name is required.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-field">
+          <mat-label>Description</mat-label>
+          <textarea matInput
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    formControlName="description"
+                    cdkAutosizeMaxRows="5"
+                    matTooltip="Provide a short description of the object"></textarea>
+                    <mat-error *ngIf="objectsForm.get('description')?.hasError('required')">
+                        Description is required.
+                    </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-field">
+          <mat-label>Category</mat-label>
+          <mat-select formControlName="category" matTooltip="Select the category of the object">
+              <mat-option [value]="'0'">WC</mat-option>
+              <mat-option [value]="'1'">Restaurant</mat-option>
+              <mat-option [value]="'2'">Parking</mat-option>
+              <mat-option [value]="'3'">Other</mat-option>
+          </mat-select>
+          <mat-error *ngIf="objectsForm.get('category')?.hasError('required')">
+            Category is required.
+        </mat-error>
+      </mat-form-field>
+
+      <p *ngIf="shouldEdit">-If you want to edit position, first click on map to select new position and click edit button on object card-</p>
+      <mat-form-field class="form-field">
+          <mat-label>Latitude</mat-label>
+          <input readonly matInput formControlName="latitude" type="number" matTooltip="Click on Map"  />
+      </mat-form-field>
+
+      <mat-form-field class="form-field">
+          <mat-label>Longitude</mat-label>
+          <input readonly matInput formControlName="longitude" type="number"  matTooltip="Click on Map" />
+      </mat-form-field>
+
+      <mat-label>Do you want to make this object public?</mat-label>
+      <mat-checkbox formControlName="isPublic"></mat-checkbox>
+
+      <div class="file-upload">
+          <input type="file" (change)="onFileSelected($event)" />
+      </div>
+
+      <div class="submit-btn">
+          <button *ngIf="!shouldEdit" type="submit" (click)="addObject()">Submit</button>
+          <button *ngIf="shouldEdit" type="submit" (click)="updateObject()">Update</button>
+      </div>
+  </div>
+    <div *ngIf="alert" class="alert-design">
+        <div class="alert-text">
+            <p style="margin-top: 20px;">Please fill in all fields!</p>
+        </div>
+        <div>
+            <button (click)="alertOff()" class="alert-button" mat-icon-button><mat-icon>close</mat-icon></button>
+        </div>
+    </div>
+</form>

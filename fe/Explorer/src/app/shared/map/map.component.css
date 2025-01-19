@@ -1,0 +1,42 @@
+
+.map-frame {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  margin: auto;
+  /* height: 600px; */
+  /* max-height: 600px; */
+}
+  
+#map {
+  border: 1px solid #031926;
+  height: 600px;
+  /* height: 100%; */
+}
+
+
+.search-bar{
+  width: 300px;
+  margin: auto;
+  border: 1px solid #031926;
+  margin-top: 10px;
+  padding: 6px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  color: #031926;
+  background-color: #2e393f10;
+}
+
+.map-button{
+  width: 140px;
+  border-radius: 22px;
+  margin: auto;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  
+}
+
+.search-map{
+  margin: auto;
+}

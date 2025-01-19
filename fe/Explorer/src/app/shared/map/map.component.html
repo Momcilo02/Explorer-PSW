@@ -1,0 +1,14 @@
+<div class="map-frame">
+  <div class="search-map" *ngIf="showSearch">
+  <input
+    type="text"
+    placeholder="Enter City or Country"
+    #searchInput
+    (keyup.enter)="searchLocation(searchInput.value)"
+    class="search-bar"
+  />
+  <button class="map-button" (click)="searchLocation(searchInput.value)">Search</button>
+</div>
+    <div id="map"></div>
+  </div>
+  

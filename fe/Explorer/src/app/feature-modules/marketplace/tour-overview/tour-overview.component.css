@@ -1,0 +1,202 @@
+.body {
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+}
+.pic-design{
+  width: 100%;
+  height: 45vh;
+  object-fit: cover;
+}
+.img-cover{
+  width: 100%;
+  height: 45vh;
+  background-color: rgba(0, 0, 0, 0.65);
+  position: absolute;
+  top: 8vh;
+  left: 0;
+  z-index: 1000;
+  flex-direction: column;
+  display: flex;
+}
+
+.header_my_profile{
+  position: relative;
+  z-index: 1100;
+  top: 18vh;
+  margin-left: 30%;
+  color: #DBFCFF;
+  
+}
+.tour-container {
+  display: flex;
+  flex-direction: row;
+  transition: all 0.5s ease-in-out;
+  position: relative;
+}
+
+.tour-container.map-open .tour {
+  width: 60%;
+}
+
+.tour-container.map-open .map-frame {
+  width: 40%;
+}
+
+.tour{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 20px;
+  /* background-color: #0AADFF; */
+  gap: 20px;
+  transition: width 0.5s ease-in-out;
+  height: 100%;
+}
+
+.header {
+  width: 100%;
+  height: 45vh;
+}
+
+.buttons{
+  position: absolute;
+  left: 10px;
+  top: 37vh;
+  gap: 10px;
+}
+
+.buttons button{
+  margin-left: 15px;
+}
+
+.tour-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.tour-card {
+  background-color: #ffffff;
+  width: 280px;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.tour-card img{
+  width: 240px;
+  height: 180px;
+}
+.tour-card h4{
+  margin-left: -100px;
+}
+
+.tour-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.card-header {
+  /* font-size: 1.3em; */
+  font-weight: 600;
+  color: #253b34;
+  margin-top: 20px;
+}
+
+.map-frame {
+  width: 0;
+  overflow: hidden;
+  background-color: #fff;
+  transition: width 0.5s ease-in-out;
+  height: 100%;
+  position: relative;
+}
+
+.search-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+.search-inputs {
+  display: flex;
+  align-items: center;
+  width: 1000px;
+  gap: 30px; 
+}
+
+mat-form-field {
+  flex: 1; /* Input polje zauzima preostali prostor */
+}
+
+.mapp {
+  width: 100%;
+  height: 500px; 
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+#searchMap {
+  width: 100%;
+  height: 100%;
+}
+
+p{
+  color: red;
+}
+
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 2000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 60%;
+  height: 90%;
+  position: relative;
+}
+
+.modal-content .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  color: black;
+}
+
+.buy {
+  color: #fff;
+  background-color: #f44336;
+  font-size: 1.1em;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 14px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}

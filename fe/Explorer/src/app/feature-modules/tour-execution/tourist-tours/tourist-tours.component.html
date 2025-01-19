@@ -1,0 +1,63 @@
+<h1>My Tours</h1>
+<div class = "onGoingTour">
+    <div *ngIf="OnGoningTourExecution != null">
+        <p>{{OnGoingTour.name}}</p> 
+        <p>{{OnGoingTour.description}}</p> 
+        <p>Last activity: {{OnGoningTourExecution.lastActivity}}</p>
+        <p>Completed:{{OnGoningTourExecution.completedPercentage}} %</p>
+        <button (click)="OpenTourExecution(OnGoningTourExecution)">Open</button>
+        <button *ngIf="OnGoningTourExecution.completedPercentage > 35 && isLastActivityWithinWeek(OnGoningTourExecution.lastActivity)"
+            (click)="addReview(OnGoningTourExecution.lastActivity, OnGoningTourExecution.tourId, OnGoningTourExecution.completedPercentage)">Add Review</button>
+    </div>
+    <div *ngIf="OnGoningTourExecution == null">
+        <p class="noStartedTour">There are no started tours. Scroll down and start a new adventure!</p>
+    </div>
+</div>
+
+<div class = "buttons-filter">
+    <button class="button-design" (click)="ShowTours(1)" >Unstarted</button>
+    <button class="button-design" (click)="ShowTours(2)" >Abandoned</button>
+    <button class="button-design" (click)="ShowTours(3)" >Completed</button>
+</div>
+
+<!--Ako odaberes ovakav prikaz isto samo tri puta i u ovaj glavni div sa classom card
+treba da dodas for koji vrti i ispisuje podatke imaces samo jedan card to znas-->
+
+<div  *ngIf="NotStartedToursVisibility">
+    <div class="table-cards" *ngFor="let notStarted of NotStartedTours">
+         <div class="card">
+              <h3>{{notStarted.name}}</h3>
+              <p>{{notStarted.description}}</p>
+              <p>Difficulty: {{notStarted.difficulty}}</p>
+              <p>Length {{notStarted.length}}</p>
+             <button class="button-design" (click)="StartTour(notStarted)">Start</button>
+        </div>
+    </div>
+</div>
+
+<div  *ngIf="AbondedToursVisibility">
+    <div class="table-cards" *ngFor="let abonded of AbondedExecutions">
+        <div class="card">
+            <h3>Tour ID:{{abonded.tourId}}</h3>
+            <p>Started: {{abonded.tourStartDate}}</p>
+            <p>Left: {{abonded.tourEndDate}}</p>
+            <p>Completed:{{abonded.completedPercentage}}%</p>
+            <button *ngIf="abonded.completedPercentage > 35 && isLastActivityWithinWeek(abonded.lastActivity)" 
+                (click)="addReview(abonded.lastActivity, abonded.tourId, abonded.completedPercentage)">Add Review</button> <br>
+            <button (click)="addReport(abonded.tourId)">Add Report</button>
+        </div>
+    </div>
+</div>
+
+<div  *ngIf="CompletedToursVisibility">
+    <div class="table-cards" *ngFor="let completed of CompletedExecutions">
+        <div class="card">
+            <h3>Tour ID:{{completed.tourId}}</h3>
+            <p>Started: {{completed.tourStartDate}}</p>
+            <p>Ended: {{completed.tourEndDate}}</p>
+            <p>Completed: {{completed.completedPercentage}}</p>
+            <button *ngIf="completed.completedPercentage > 35  && isLastActivityWithinWeek(completed.lastActivity)" (click)="addReview(completed.lastActivity, completed.tourId, completed.completedPercentage)">Add Review</button> <br>
+            <button (click)="addReport(completed.tourId)">Add Report</button>
+        </div>
+    </div>
+</div>

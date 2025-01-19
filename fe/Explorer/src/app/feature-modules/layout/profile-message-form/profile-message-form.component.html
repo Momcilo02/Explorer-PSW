@@ -1,0 +1,32 @@
+<div class="send-message-form">
+  <h4>Send to: {{name}} {{surname}}</h4>
+  <form>
+    <!-- Polje za unos poruke -->
+    <div>
+      <label for="message">Message</label>
+      <textarea
+        id="message"
+        [(ngModel)]="message"
+        name="message-content"
+        rows="4"
+        maxlength="280"
+        (input)="updateRemainingChars()"
+        required
+      ></textarea>
+      <small>{{ remainingChars }} characters left</small>
+    </div>
+
+    <!-- Select za odabir resursa -->
+    <div>
+      <label for="resource">Related resource</label>
+      <select id="resource" [(ngModel)]="selectedResource" name="resource" required>
+        <option *ngFor="let resource of resources" [ngValue]="resource">
+          {{ resource.type }}: {{ resource.name }}
+        </option>
+      </select>
+    </div>
+
+    <label>{{sendingFeedback}}</label>
+    <button type="submit" [disabled]="!message || remainingChars < 0" (click)="onSubmit()">Send</button>
+  </form>
+</div>

@@ -1,0 +1,29 @@
+<p>tourist-equipment works!</p>
+<div id="tourist-equipment">
+  <h1>Adding equipment to tourist</h1>
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th>Naziv</th>
+          <th>Opis</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let eq of equipment">
+          <td>{{ eq.name }}</td>
+          <td>{{ eq.description }}</td>
+          <td>
+            <!-- Checkbox to toggle add/remove equipment -->
+            <input 
+              type="checkbox"
+              [checked]="isEquipmentSelected(eq.id ?? 0)" 
+              (change)="onCheckboxChange(eq, $event)" 
+            />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

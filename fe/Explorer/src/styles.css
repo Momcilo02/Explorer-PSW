@@ -1,0 +1,132 @@
+/* Globalne promenljive */
+@font-face {
+    font-family: 'Clarendon LT Regular';
+    src: url('assets/fonts/Clarendon LT Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Lulo Clean';
+    src: url('assets/fonts/Lulo Clean W01 One Bold.ttf') format('truetype');
+}
+
+
+:root {
+    --primary-color: #031926; /* Primarna boja */
+    --secondary-color: #0AADFF; /* Sekundarna boja*/
+    --menu-link-color: #DBFCFF; /* Boja za navigaciju kroz meni */
+    --button-main-color: #F2D177; /* Boja dugmeta van menija */
+    --font-family-header: 'Clarendon LT', serif; /* Font za naslove */
+    --font-family-menu: 'Lulo Clean', serif; /* Font za meni */
+    --font-family-paragrafs: 'Georgia', serif; /* Font za paragraf */
+    --background-color: #FFFFFF; /* Boja pozadine */
+    --text-color: #031926; /* Boja teksta */
+}
+
+/* Osnovni stilovi */
+body {
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Naslovi */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-header);
+    color: var(--primary-color);
+    margin: 10px 0;
+}
+
+/* Linkovi */
+a {
+    
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Dugmad */
+button {
+    background-color: var(--button-main-color);
+    font-family: var(--font-family-menu);
+    color: #031926;
+    font-weight: bold;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border: 1px solid rgb(242, 209, 119, 0);
+}
+
+button:hover {
+    background-color: #ffefc5;
+    border: 1px solid #031926;
+}
+
+/* Flexbox klase */
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Klase za razmake */
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+
+.container {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 10px;
+}
+.error{
+    position: fixed !important; /* Override default positioning */
+    bottom: 85vh !important;       /* 30% of viewport height */                /* Center horizontally */
+    z-index: 1000;              /* Ensure it appears above other elements */
+  }
+  .error.mat-mdc-snack-bar-container .mdc-snackbar__surface {
+    background: #f44336;
+    --mat-snack-bar-button-color:#ffffff;
+         /* Ensure it appears above other elements */
+
+  }
+  .success{
+    position: fixed !important; /* Override default positioning */
+    bottom: 85vh !important;       /* 30% of viewport height */                /* Center horizontally */
+    z-index: 1000;              /* Ensure it appears above other elements */
+  }
+  .success.mat-mdc-snack-bar-container .mdc-snackbar__surface {
+    background: #4caf50;
+    --mat-snack-bar-button-color:#ffffff;
+         /* Ensure it appears above other elements */
+
+  }
+  .info{
+    position: fixed !important; /* Override default positioning */
+    bottom: 85vh !important;       /* 30% of viewport height */                /* Center horizontally */
+    z-index: 1000;              /* Ensure it appears above other elements */
+  }
+  .info.mat-mdc-snack-bar-container .mdc-snackbar__surface {
+    background: #ffcc00;
+    --mat-snack-bar-button-color:#ffffff;
+         /* Ensure it appears above other elements */
+
+  } 
+
+  .cdk-overlay-container {
+    z-index: 2000 !important; /* Osigurava da overlay ima prioritet */
+  }
+  

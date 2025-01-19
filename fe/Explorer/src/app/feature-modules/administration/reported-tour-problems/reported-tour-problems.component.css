@@ -1,0 +1,364 @@
+:root {
+    --primary-color: #3f51b5;
+    --hover-color: #303f9f;
+    --font-family-header: 'Arial', sans-serif;
+    --font-family-paragraph: 'Roboto', sans-serif;
+  }
+  
+  #reported-tour-problems {
+    margin-top: 10px;
+  }
+  
+  #reported-tour-problems-details {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-items: flex-start;
+  }
+  
+  .font-family-header {
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+  
+  table {
+    border-collapse: collapse;
+    font-size: 0.9em;
+    min-width: 300px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  thead tr {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: left;
+  }
+  
+  th, td {
+    padding: 12px 15px;
+  }
+  
+  tbody tr {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+  }
+  
+  tbody tr:last-of-type {
+    border-bottom: 2px solid var(--primary-color);
+  }
+  
+  tbody tr.hover-row:hover {
+    background-color: var(--hover-color);
+    cursor: pointer;
+  }
+  
+  
+
+/*********Iva*************/
+.report-card{
+  position: relative;
+  display: flex;
+  justify-self: center;
+  width: 95%;
+  min-height: 65vh;
+}
+
+
+.report-card::after {
+  content: ''; /* Pseudoelement za ivicu */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px; /* Visina ivice */
+  background: linear-gradient(to right, rgba(0, 0, 0, 0), black, rgba(0, 0, 0, 0)); /* Transparentni krajevi, crna sredina */
+}
+
+.report-details{
+  margin-top: 10px;
+}
+
+.main-report-div{
+  width: 80%;
+  margin: auto;
+  min-height: 52vh;
+  border-left:1px solid #031926;
+  border-right:1px solid #031926;
+  box-shadow: 1px 1px 15px #031926;
+}
+
+.pic-design{
+  width: 100%;
+  height: 40vh;
+  object-fit: cover;
+}
+.photo-role{
+  width: 100%;
+  height: 40vh;
+}
+.img-cover{
+  width: 100%;
+  height: 40vh;
+  background-color: rgba(0, 0, 0, 0.65);
+  position: absolute;
+  top: 8vh;
+  left: 0;
+  z-index: 1000;
+  flex-direction: column;
+  display: flex;
+}
+
+.header_my_profile{
+  position: relative;
+  z-index: 1100;
+  margin: auto;
+  color: #DBFCFF;
+  
+}
+
+.header-for-tour{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.penalize-author{
+  margin-top: -10px;
+}
+
+.penalize-author button{
+  margin-left: 10px;
+}
+
+.solved-button{
+  background-color: #06ca6f;
+  color: white;
+  border-radius: 15px;
+}
+
+.unsolved-button{
+  background-color: #ca4444;
+  color: white;
+  border-radius: 15px;
+}
+
+.solved-button:hover{
+  background-color: #70ffbc;
+  color: #04743f;
+  border-radius: 15px;
+  border: 1px solid #06ca6f;
+  box-shadow: 1px 1px 10px #06ca6f;
+}
+
+
+.unsolved-button:hover{
+  background-color: #ff9090;
+  color: #8b3030;
+  border-radius: 15px;
+  border: 1px solid #ca4444;
+  box-shadow: 1px 1px 10px #ca4444;
+}
+
+.created-by {
+  position: absolute;
+  bottom: 10px; /* Udaljenost od dna */
+  right: 0; /* Opcionalno, udaljenost od desne strane */
+  font-size: 16px;
+  color: #727272;
+}
+
+.admin-date{
+  position: absolute;
+  right: 5vh;
+  margin-top: 5px;
+  font-weight: bold;
+  color:#0AADFF;
+  font-size: 18px;
+}
+
+
+
+
+/* Modal osnovni stilovi */
+.modal {
+  display: flex;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 40%;
+  z-index: 2000;
+  height: 80%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  overflow-y: hidden;
+}
+
+.close {
+  position: absolute;
+  color: #aaa;
+  justify-content: flex-end;
+  right: 1vh;
+  top: 1vh;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 5%;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+}
+
+
+
+
+
+.main-messages{
+  justify-content: center;
+  width: 95%;
+  min-height: 500px;
+  max-height: 900px;
+  padding: 20px;
+}
+
+.mess-submit{
+  display: flex;
+  flex-direction: column;
+  gap:20px;
+  width: 100%;
+}
+
+.form-submit {
+  width: 100%;
+
+}
+
+.messages{
+  width: 80%;
+  margin-bottom: 10px;
+  border: 1px solid #0AADFF;
+  box-shadow: 1px 1px 10px #0AADFF;
+  border-radius: 20px;
+  min-height: 100px;
+  flex-direction: row;
+  list-style-type: none;
+  align-content: center;
+  padding: 5px;
+}
+
+.p-messages{
+  font-size: 15px;
+  margin-left: 20px;
+  margin-bottom: 5px;
+}
+
+.message-input, .form-button{
+  height: 6vh; /* Ista visina */
+  padding: 5px; /* Ista unutrašnja margina */
+  box-sizing: border-box; /* Uključuje padding u ukupne dimenzije */
+}
+
+.message-input{
+  border: none;
+  border-top: 2px solid #031926;
+  width: 80%;
+}
+
+.message-input:focus {
+  outline: none; /* Uklanja default border */
+}
+
+.form-button{
+  background-color: white;
+  border: none;
+  border-top: 2px solid #031926;
+  width: 20%; /* Širina dugmeta */
+  text-align: center;
+  color:#031926;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 9px;
+}
+
+.form-button:hover{
+  color: #0AADFF;
+}
+
+.proba{
+  height: 55vh;
+  overflow-y: auto;
+  padding-top: 10px;
+}
+
+.message-right {
+  align-items: flex-end;
+  text-align: right;
+  margin-right: 10px;
+}
+
+
+.message-right-main{
+  display: flex;
+  flex-direction: column;
+  justify-self:flex-end;
+  margin-right: 5px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #b3b1b1; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #838181; 
+}
+
+.no-messages{
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  font-size: 16px;
+  height: 55vh;
+}
+
+
+.horizontal-line{
+  display: flex;
+  justify-content: center;
+  border-top: 2px solid black;
+  width: 90%;
+  margin-bottom: 5px;
+}

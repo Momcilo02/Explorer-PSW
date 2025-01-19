@@ -1,0 +1,170 @@
+
+.pic-design{
+    width: 100%;
+    height: 45vh;
+    object-fit: cover;
+  }
+  .photo-role{
+    width: 100%;
+    height: 45vh;
+  }
+  .img-cover{
+    width: 100%;
+    height: 45vh;
+    background-color: rgba(0, 0, 0, 0.65);
+    position: absolute;
+    top: 8vh;
+    left: 0;
+    z-index: 1000;
+    flex-direction: column;
+    display: flex;
+  }
+  
+  .header_my_profile{
+    position: relative;
+    z-index: 1100;
+    top: 18vh;
+    margin-left: 40%;
+    color: #DBFCFF;
+    
+  }
+
+.main-page{
+    height: 110vh;
+}
+
+.header-label{
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+}
+.fading-hr {
+    border: none; 
+    height: 1.5px; /* Thickness of the line */
+    background: linear-gradient(to right, transparent, #031926, transparent);
+    margin: auto;
+    margin-top: -10px;
+    margin-bottom: 30px;
+  }
+
+.map-size{
+    width: 45%;
+    height: 100%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+
+.formContainer{
+    flex-direction: row;
+    display: flex;
+    height: 100%;
+    
+}
+
+.form-div{
+    width: 50%;
+    height: 100%;
+    padding: 10px;
+    padding-top: 2vh;
+    
+}
+
+.input-design{
+    width: 300px;
+    border: none;
+    border: 1px solid #031926;
+    height: 45px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #2e393f10;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+    margin-bottom: 15px;
+
+}
+
+.label-design{
+    color: #031926;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-row{
+    display: flex;
+    flex-direction: row;
+    gap: 5vh;
+    margin-bottom: 10px;
+}
+
+.h1-css{
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+
+.submit-design {
+    width: 150px;
+    border-radius: 25px;
+    position: absolute;
+    top: 145vh;
+    
+}
+
+
+
+.button-position{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 30px;
+    margin-top: 20px;
+}
+
+.file-upload{
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+}
+
+.confirm-btn {
+    background-image: url('/assets/images/confirm-encounter.png');
+    background-repeat: no-repeat; 
+    background-position: center; 
+    background-size: 25px 25px; 
+    color: white;
+    border: none;
+    cursor: pointer;
+    height: 40px; 
+    line-height: 40px;
+    background-color: white;
+    margin-top: 4vh;
+    margin-left: -10px;
+}
+
+.confirm-btn:hover {
+    background-image: url('/assets/images/confirm-hover.png');
+   
+}
+  
+  .cancel-btn {
+    background-image: url('/assets/images/edit-encounter.png');
+    background-repeat: no-repeat; 
+    background-position: center; 
+    background-size: 25px 25px; 
+    color: white;
+    border: none;
+    cursor: pointer;
+    height: 40px; 
+    line-height: 40px;
+    background-color: white;
+    margin-top: 4vh;
+    margin-left: -10px;
+  }
+
+  .cancel-btn:hover {
+    background-image: url('/assets/images/edit-hover.png');
+    
+  }

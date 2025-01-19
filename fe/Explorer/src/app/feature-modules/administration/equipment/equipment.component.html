@@ -1,0 +1,49 @@
+<img class="pic-design" src="https://www.rei.com/dam/day_hiking_checklist_lg3.jpg" >
+    <div class="img-cover">
+      <h1 class="header_my_profile">Equipment</h1>
+      <button (click)="onAddClicked()">Add new Equipment</button>
+    </div>
+<div id="equipment">
+    <div id="equipment-details">
+        <div>
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let eq of equipment">
+                <td>{{eq.name}}</td>
+                <td>{{eq.description}}</td>
+                <td class="menu">
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="More options" matTooltip="More options" class="menu-button">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu" class="top-right-menu">
+                    <button mat-menu-item (click)="onEditClicked(eq)">
+                    <mat-icon>edit</mat-icon>
+                    <span>Edit</span>
+                    </button>
+                    <button mat-menu-item (click)="deleteEquipment(eq.id || 0)">
+                    <mat-icon>delete</mat-icon>
+                    <span>Delete</span>
+                    </button>
+                </mat-menu>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        </div>
+    </div>
+    </div>
+      
+
+<div class="modal" *ngIf="shouldRenderEquipmentForm" (click)="closeModal()" >
+    <div class="modal-content" (click)="$event.stopPropagation()">
+        <span class="close" (click)="closeModal()">&times;</span>
+        <xp-equipment-form *ngIf="shouldRenderEquipmentForm" [shouldEdit]="shouldEdit" [equipment]="selectedEquipment" (equimpentUpdated)="getEquipment()"></xp-equipment-form>
+      </div>
+  </div>

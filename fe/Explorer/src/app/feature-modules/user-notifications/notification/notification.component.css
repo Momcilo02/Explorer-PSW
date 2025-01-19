@@ -1,0 +1,58 @@
+.notif-table {
+    width: 37vh;
+    height: auto;
+    overflow-y: auto;
+    border: 2px solid #DBFCFF;
+    border-radius: 30px;
+    padding: 10px; /* Razmak unutar prozora */
+    width: 66vh;
+    background-color: #031926;
+    color: #DBFCFF;
+    margin-bottom: 10px;
+    
+}
+
+.notif-table:hover {
+    
+    border: 2px solid #DBFCFF;
+    background-color: #0AADFF;
+    color: #031926;
+    
+}
+
+table, th, tr, td{
+    text-align: left;
+    border-collapse: collapse;
+}
+th{
+    font-size: 18px;
+}
+
+td{
+    font-size: 16px;
+}
+
+table{
+    width: 100%;
+}
+
+
+body{
+    position: absolute;
+    z-index: 2000 ;
+    overflow-x: hidden;
+    padding: 10px;
+
+}
+
+.notif-icon{
+    width: 10vh;
+    height: auto;
+}
+
+.no-new{
+    color: #DBFCFF;
+    font-size: 19px;
+    font-weight: bold;
+    text-align: center;
+}

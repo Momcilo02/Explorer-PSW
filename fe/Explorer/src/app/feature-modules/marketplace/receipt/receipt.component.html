@@ -1,0 +1,20 @@
+<div class="receipt-container">
+  <h1 class="receipt-header">Your Receipt</h1>
+  <hr class="divider" />
+  <div *ngIf="paymentRecords.length > 0; else noRecords">
+    <ul class="receipt-list">
+      <li *ngFor="let record of paymentRecords" class="receipt-item">
+        <p>Item: <span class="receipt-value">{{ getItemName(record.itemId) }}</span></p>
+        <p>Price: <span class="receipt-value">{{ record.price }} AC</span></p>
+        <p>Shopping Time: <span class="receipt-value">{{ record.shoppingTime | date: 'short' }}</span></p>
+        <hr class="item-divider" />
+      </li>
+    </ul>
+    <p class="receipt-total">Total Price: <span class="receipt-value">{{ totalPrice }} AC</span></p>
+  </div>
+  <ng-template #noRecords>
+    <p class="no-records">No payment records found.</p>
+  </ng-template>
+  <hr class="divider" />
+  <p class="thank-you">Thank you for your purchase!</p>
+</div>

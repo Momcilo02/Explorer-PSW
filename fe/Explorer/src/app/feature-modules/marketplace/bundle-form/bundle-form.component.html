@@ -1,0 +1,50 @@
+<img class="pic-design" src="assets/images/bundle.jpg" >
+    <div class="img-cover">
+      <h1 class="header_my_profile">Manage your bundle</h1>
+    </div>
+<div>
+    <div *ngIf="!next">
+        <h3 class="H3">Select your tours to create a bundle:</h3>
+        <div  class="tours">
+            <button (click)="goToBundle()">Previous</button> 
+            <div class="tour" *ngFor="let t of tours"  [class.clicked]="isSelected(t.id)" 
+            (click)="toggleSelection(t)">
+                <h1>{{t.name}}</h1>
+                <p>Status: {{t.status}}</p>
+                <p>Price: {{t.cost}}</p>
+            </div>  
+        </div>
+        <div  class="next">
+            <h3>Total Price: {{totalPrice}}</h3>
+            <button (click)="nextOrPrevious()">Next</button>
+        </div>
+    </div>
+    <div *ngIf="next" class="forms">
+        <form [formGroup]="bundleForm">
+            <h2>Total Price: {{totalPrice}}</h2>
+            <mat-form-field>
+               <mat-label>Name</mat-label>
+               <input matInput formControlName="name" type="text">
+               <mat-error *ngIf="bundleForm.get('name')?.hasError('required')">
+                    Name is required.
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Price</mat-label>
+                <input matInput formControlName="price" type="number" min="0">
+                <mat-error *ngIf="bundleForm.get('price')?.hasError('required')">
+                    Price is required.
+                </mat-error>
+                <mat-error *ngIf="bundleForm.get('price')?.hasError('min')">
+                    Price cannot be negative.
+                </mat-error>
+            </mat-form-field>
+            <div class="buttons">
+                <button class="add-update" mat-raised-button type="submit" (click)="nextOrPrevious()">Previous</button>
+                <button class="add-update" mat-raised-button type="submit" (click)="addOrEdit()">Submit </button>
+            </div>     
+        </form>
+    </div>
+</div>
+
+

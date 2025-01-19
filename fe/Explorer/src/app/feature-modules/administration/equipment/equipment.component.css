@@ -1,0 +1,150 @@
+.pic-design{
+    width: 100%;
+    height: 45vh;
+    object-fit: cover;
+  }
+  .img-cover{
+    width: 100%;
+    height: 45vh;
+    background-color: rgba(0, 0, 0, 0.65);
+    position: absolute;
+    top: 8vh;
+    left: 0;
+    z-index: 1000;
+    flex-direction: column;
+    display: flex;
+  }
+  
+  .header_my_profile{
+    position: relative;
+    z-index: 1100;
+    top: 20vh;
+    color: #DBFCFF;
+    margin-left: 46%;
+  }
+
+  .img-cover button{
+    position: absolute;
+    left: 2vh;
+    bottom: 2vh;
+    background-color: #031926;
+    color: #DBFCFF ;
+  }
+
+  #equipment {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  #equipment h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  #equipment-details table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  #equipment-details th,
+  #equipment-details td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  #equipment-details th {
+    background-color: #031926;
+    color: white;
+    font-weight: bold;
+  }
+  
+  #equipment-details tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  #equipment-details .menu {
+    text-align: center;
+  }
+  
+  #equipment-details .menu-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  #equipment-details .menu-button mat-icon {
+    color: #031926;
+    font-size: 24px;
+  }
+  
+  /* #equipment-details .menu-button:hover mat-icon {
+    color: #0AADFF;
+  } */
+  
+  #equipment-details mat-menu {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  #equipment-details mat-menu button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+  }
+  
+  #equipment-details mat-menu button:hover {
+    background-color: #f2f2f2;
+  }
+  
+  #equipment-details mat-menu mat-icon {
+    color: #031926;
+  }
+
+
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 2000;
+    overflow: hidden;
+  }
+  
+  .modal-content {
+    /* background-color: white; */
+    padding: 20px;
+    border-radius: 10px;
+    width: 29%;
+    height: 70%;
+    position: relative;
+    overflow-y: auto; 
+    /* max-height: 100%; */
+  }
+  
+  .modal-content .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    color: black;
+    
+  }

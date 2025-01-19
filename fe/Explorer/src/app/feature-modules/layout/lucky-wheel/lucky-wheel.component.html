@@ -1,0 +1,17 @@
+<body class="wheel-body">
+    <div class="wrapper">
+      <div class="container">
+        <canvas id="wheel" #wheel ></canvas>
+        <button id="spinBtn"  #spinBtn (click)="startSpinning() ">Spin</button>
+        <img class="img-wheel" src="assets/images/arrow.png" alt="spinner arrow" />
+      </div>
+      <div id="finalValue" #finalValue>
+        <p>{{spintButtonText}}</p>
+      </div>
+    </div>
+    <!-- Chart JS -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/index.d.ts"></script> -->
+    <!-- Chart JS Plugin for displaying text over chart -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.2.0/chartjs-plugin-datalabels.min.js"></script> -->
+    
+  </body>

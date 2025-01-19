@@ -1,0 +1,37 @@
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px; /* Širina forme */
+    margin: 20px auto; /* Centriranje forme */
+    padding: 20px;
+    border: 1px solid #ccc; /* Oko forme */
+    border-radius: 8px; /* Zaobljeni uglovi */
+    background-color: #f9f9f9; /* Pozadina forme */
+  }
+  
+  label {
+    margin-bottom: 5px; /* Razmak između label i inputa */
+    font-weight: bold; /* Podebljan tekst */
+  }
+  
+  input, textarea {
+    margin-bottom: 15px; /* Razmak između input polja */
+    padding: 10px; /* Unutrašnji razmak */
+    border: 1px solid #ccc; /* Granica oko inputa */
+    border-radius: 4px; /* Zaobljeni uglovi inputa */
+    font-size: 16px; /* Veličina fonta */
+  }
+  
+  button {
+    padding: 10px; /* Unutrašnji razmak za dugme */
+    background-color: #007bff; /* Boja pozadine dugmeta */
+    color: white; /* Boja teksta na dugmetu */
+    border: none; /* Bez granice */
+    border-radius: 4px; /* Zaobljeni uglovi dugmeta */
+    cursor: pointer; /* Kursor kao ruka */
+  }
+  
+  button:hover {
+    background-color: #e73209; /* Tamnija boja pri prelasku mišem */
+  }
+  

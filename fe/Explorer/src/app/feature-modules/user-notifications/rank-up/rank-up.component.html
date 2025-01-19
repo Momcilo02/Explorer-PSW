@@ -1,0 +1,8 @@
+<div class="modal-background">
+    <div class="modal-content">
+      <h2>Congratulations!</h2>
+      <p>You ranked up to Rank {{ rankToString() }}!</p>
+      <img [src]="rankImage" alt="Rank Icon" class="rank-icon" />
+      <button class="button-rank" (click)="closeModal()">Close</button>
+    </div>
+</div>

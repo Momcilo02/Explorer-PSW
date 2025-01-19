@@ -1,0 +1,59 @@
+<div id="blogs">
+    <button mat-button color="primary" (click)="filterByStatus('active')">Show Active Blogs</button>
+    <button mat-button color="accent" (click)="filterByStatus('famous')">Show Famous Blogs</button>
+    <h1>Blogs</h1>
+    <div id="blog-details">
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th [width]="70">Glasovi</th>
+                        <th>Naslov</th>
+                        <th>Opis</th>
+                        <th>Popularity</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let b of blogsDtos">
+                        <div class="vote-container">
+                            <button class="vote" (click)="upvote(b)" [ngClass]="{'active': b.isUpvoted}">▲</button>
+                            <span class="vote-span">{{b.voteCount}}</span>
+                            <button class="vote" (click)="downvote(b)" [ngClass]="{'active':  b.isDownvoted}">▼</button>
+                          </div>
+                          <td (click)="showComments(b.blog.id)" style="cursor: pointer">{{ b.blog.title }}</td>
+                          <td><markdown>{{b.blog.description}}</markdown></td>
+                          
+                        <td>
+                            <div>
+                                <p *ngIf="b.blog.activityStatus === 0">Regular</p>
+                                <p *ngIf="b.blog.activityStatus === 1">Popular</p>
+                                <p *ngIf="b.blog.activityStatus === 2">Famous</p>
+                                <p *ngIf="b.blog.activityStatus === 3">Closed</p>
+                            </div>
+                            
+                        </td>
+                        <td>
+                            <button mat-raised-button *ngIf="b.isOwner && b.blog.status === 0" (click)="publishBlog(b)">Publish</button>
+                            <button mat-raised-button extended *ngIf="b.isOwner && b.blog.status === 1" (click)="closeBlog(b)">
+                                <mat-icon>delete</mat-icon>
+                                Close
+                            </button>
+                            <p *ngIf="b.blog.status === 2">Closed</p>
+                        </td>
+                    </tr>
+                    <tr><button color="primary" (click)="addBlogClick()" mat-icon-button>
+                        <mat-icon>add</mat-icon>
+                    </button></tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <xp-blog-form (blogAdded)="getBlogs()" *ngIf="addingBlog"></xp-blog-form>
+        </div>
+        <div>
+            <xp-comment *ngIf="selectedBlogId" [blogId]="selectedBlogId"></xp-comment>
+        </div>
+    </div>
+    
+</div>

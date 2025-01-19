@@ -1,0 +1,63 @@
+<div >
+    <h1>Tour Review</h1>
+ <div id="container">
+<div id="tour-review">
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>TourId</th>
+                <th>Rating</th>
+                <th>Comment</th>
+                <th>TouristId</th>
+                <th>VisitDate</th>
+                <th>ReviewDate</th>
+                <th>Percentage</th>
+                <th>Images</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let t of tourReview">
+                <td>{{t.id}}</td>
+                <td>{{t.tourId}}</td>
+                <td>{{t.rating}}</td>
+                <td>{{t.comment}}</td>
+                <td>{{t.touristId}}</td>
+                <td>{{t.visitDate}}</td>
+                <td>{{t.reviewDate}}</td>
+                <td>{{t.completedPercentage}}%</td>
+                <td>{{t.images}}</td>
+           
+                <td>
+                    <!--<button color="accent" (click)="deleteReview(t.id || 0)" mat-icon-button>
+                        <mat-icon>delete</mat-icon>
+                    </button>-->
+                    <button color="primary" (click)="onEditClicked(t)" mat-icon-button>
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                </td>
+            </tr>  
+            
+            <tr><button color="primary" (click)="onAddClicked()" mat-icon-button>
+                <mat-icon>add</mat-icon>
+            </button></tr>
+           
+        </tbody>
+    </table>
+</div>
+
+    <div>
+        <xp-tour-review-form 
+        *ngIf="shouldRenderReviewForm" 
+        [shouldEdit]="shouldEdit" 
+        [tourReview]="selectedReview"
+        [tourId]="IdTour"
+        [completedPercentage]="Percentage"
+        [visitDate]="lastActivity"
+        (reviewUpdated)="getTourReview()">
+</xp-tour-review-form>
+    </div>
+</div>
+</div>

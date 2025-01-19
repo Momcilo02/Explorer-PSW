@@ -1,0 +1,25 @@
+<div>
+    <input type="text" placeholder="Filter by comment" (input)="filterComments($event)" />
+    <button (click)="sortByRating()">Sort by Rating</button>
+    <button (click)="sortByDate()">Sort by Date</button>
+  </div>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Rating</th>
+        <th>Comment</th>
+        <th>Date</th>
+        <th>User ID</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let grade of filteredGrades">
+        <td>{{ grade.rating }}</td>
+        <td>{{ grade.comment }}</td>
+        <td>{{ grade.created | date:'short' }}</td>
+        <td>{{ grade.userId }}</td>
+      </tr>
+    </tbody>
+  </table>
+  

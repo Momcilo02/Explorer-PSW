@@ -1,0 +1,382 @@
+.img-holder {
+    width: 100%;
+    height: 100vh;
+}
+
+.main-img {
+    width: 100%;
+    height: 100vh;  
+    object-fit: cover;
+}
+
+.welcome {
+    width: 100%;
+    height: 108vh; 
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute; 
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    flex-direction: column;
+    display: flex;
+}
+.img-header{
+    color: #DBFCFF;
+    font-size: 72px;
+    margin-top: 50vh;
+    margin-left: 10vh;
+}
+
+.img-p{
+    color: #DBFCFF;
+    margin: 0;
+    font-size: 20px;
+    margin-left: 10vh;
+    font-size: 22px;
+    margin-top: -2vh;
+}
+
+
+.welcome-button{
+    background-color: rgb(242, 209, 119, 0);
+    color: #DBFCFF;
+    border: 2px solid #DBFCFF;
+    width: 25vh;
+    padding: auto;
+    border-radius: 25px;
+    font-size: 16px;
+    font-family: 'Georgia', serif;
+    
+}
+
+.button-margin{
+    flex-direction: row;
+    display: flex;
+    gap:25px;
+    margin-left: 23vh;
+    margin-top: 4vh;
+}
+
+.welcome-button:hover{
+    
+    background-color: #DBFCFF;
+    color: #031926;
+    border: 2px solid #031926;
+}
+
+/*Preporucene ture*/
+.carousel-container {
+    max-width: 95%; 
+    margin: auto; 
+    padding: 20px;
+    text-align: center;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.carousel {
+    display: flex;
+    overflow-x: auto; /* Omogućava horizontalno skrolovanje */
+    gap: 4vh; 
+}
+.tour-header{
+    text-align: left;
+    margin-bottom: 15px;
+    margin-left: -15px;
+}
+.card {
+    min-width: 260px; /* Minimalna širina kartice */
+    background-color: #DBFCFF; /* Pozadina kartice */
+    border-radius: 10px; /* Zaobljeni uglovi */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Senka */
+    overflow: hidden; /* Sakriva sadržaj koji izlazi iz kartice */
+    transition: transform 0.3s; /* Animacija pri hover-u */
+    margin-bottom: 15px;
+    margin-top: 15px;
+    margin-left: 5px;
+}
+
+.card:hover {
+    transform: scale(1.05); /* Uvećava karticu pri hover-u */
+}
+
+.card img {
+    width: 100%; 
+    height: 150px; 
+    object-fit: cover; 
+}
+
+.card-info {
+    padding: 15px; /* Unutrašnji razmak */
+}
+
+.card-info h3 {
+    margin-bottom: 10px; /* Razmak između naslova i cene */
+}
+
+.carousel-text{
+    color: #031926;
+}
+
+
+/*Sekcija za turistu*/
+#tourist-section {
+    width: 100%;
+    height: 600px;
+    background-color: #0AADFF;
+    box-shadow: 0 4px 20px rgba(0, 170, 255, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    position: relative;
+}
+
+.tourist-elements {
+    display: flex; 
+    align-items: flex-start; 
+    justify-content: space-between; 
+    width: 90%; 
+    padding: 20px; 
+}
+
+.sections {
+    color:white;
+    margin-left: 40px;
+    margin-top: 40px;
+    margin-bottom: -40px;
+}
+
+.image-container {
+    position: relative; 
+}
+
+.tourist-image {
+    margin-left: 25px;
+    height: auto; 
+    position: absolute; 
+    transition: transform 0.3s ease;
+}
+
+.tourist-image:nth-child(1) {
+    left: 20;
+    top: 40px;
+    z-index: 2; 
+    width: 45vh;
+}
+
+.tourist-image:nth-child(2) {
+    left: 300px;
+    top: 90px; 
+    z-index: 1; 
+    width: 40vh;
+    height: auto;
+}
+
+.tourist-image:nth-child(3) {
+    left: 40px; 
+    top: 270px; 
+    z-index: 0; 
+    width: 45vh;
+}
+
+.tourist-image:hover {
+    transform: scale(1.05); 
+    z-index: 3; 
+}
+
+.info-header {
+    color: white;
+    font-size: 24px; 
+    margin-bottom: 15px;
+    margin-top: 15vh; 
+}
+
+.info-list {
+    padding: 0;
+}
+
+.info-list li {
+    color: white; 
+    font-size: 18px; 
+    margin-bottom: 5px; 
+}
+
+.tourist-button{
+    margin-top: 10px;
+    vertical-align: bottom;
+    float: right;
+    border-radius: 25px;
+    width: 32%;
+    padding: 15px;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: 'Georgia', serif;
+    box-shadow:0px 2px 3px rgb(3, 25, 38, 0.5);
+}
+
+
+/*Sekcija za vodica*/
+.guide-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 20px 0;
+    color:#031926;
+    height: 500px;
+  }
+  .guide-right {
+    display: flex;
+    flex-direction: column; /* Ensure title and images stack vertically */
+    align-items: flex-end;  /* Align content to the right */
+    max-width: 50%;
+  }
+
+  .guide-h1{
+    margin-top: 10px;
+    margin-right: 150px;
+    margin-bottom: -20px;
+    text-align: right;
+    color: #031926;
+  }
+  
+  /* Left side: Text content */
+  .guide-info {
+    max-width: 50%;
+  }
+  
+  .guide-header {
+    font-size: 24px;
+    margin-bottom: 10px;
+    margin-top: 100px;
+    margin-left: 130px;
+  }
+  
+  .guide-list {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-bottom: 20px;
+    margin-left: 120px;
+  }
+  
+  .guide-button {
+    margin-top: 10px;
+    margin-left: 130px;
+    border-radius: 25px;
+    width: 40%;
+    padding: 15px;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: 'Georgia', serif;
+    box-shadow:0px 2px 3px rgb(3, 25, 38, 0.5);
+  }
+  
+ 
+.guide-images {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: relative;
+    gap: 15px;
+    margin-top: 20px;
+    margin-right: 100px;
+  }
+
+  .guide-image {
+    border-radius: 10px;
+    object-fit: cover;
+    transition: transform 0.3s ease, z-index 0.3s ease; 
+  }
+  
+ 
+  .guide-image:nth-child(1) {
+    position: absolute; 
+    right: 160px;
+    top: 40px;
+    z-index: 0;
+    width: 45vh;
+    height: auto;
+  }
+  
+ 
+  .guide-image:nth-child(2) {
+    position: absolute;
+    right: 50px;
+    top: 150px;
+    z-index: 1;
+    width: 40vh;
+    height: auto;
+  }
+  
+  /* Hover effect for scaling and bringing to front */
+  .guide-image:hover {
+    transform: scale(1.05); 
+    z-index: 3; 
+  }
+  
+
+  /*Footer*/
+
+  .footer {
+    width: 100%;
+    height: auto; /* Allow flexible height */
+    background-color: #031926;
+    color: #DBFCFF; /* Light color for contrast */
+    padding: 20px 0;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-around; /* Distribute sections evenly */
+    align-items: flex-start; /* Align items at the top */
+    max-width: 1200px; /* Maximum width for content */
+    margin: 0 auto; /* Center align */
+  }
+  
+  .footer-links,
+  .footer-contact,
+  .footer-social {
+    max-width: 300px;
+  }
+  
+  .footer-links h3,
+  .footer-contact h3,
+  .footer-social h3 {
+    margin-bottom: 15px;
+    color: #F2D177;
+  }
+  
+  .footer-links ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .footer-links ul li {
+    margin-bottom: 10px;
+  }
+  
+  .footer-links ul li a {
+    color: #DBFCFF;
+    text-decoration: none;
+  }
+  
+  .footer-links ul li a:hover {
+    color: #F2D177;
+    text-decoration: underline;
+  }
+  
+  .footer-contact p {
+    margin: 8px 0;
+  }
+  
+  .social-icons a img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    transition: transform 0.3s;
+  }
+  
+  .social-icons a img:hover {
+    transform: scale(1.1); /* Small zoom on hover */
+  }
+  

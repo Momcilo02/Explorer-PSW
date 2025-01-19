@@ -1,0 +1,19 @@
+<div class="chat-container">
+  <div class="chat-header">
+    <mat-icon class="back-arrow" [routerLink]="['/touristClub']">arrow_back</mat-icon>
+    <h1>Club: {{touristClubName}}</h1>
+  </div>
+
+  <div class="messages-container">
+    <div class="message-list">
+    <div class="message-card" *ngFor="let message of messages">
+      <xp-club-message [message]="message" [loggedInUser]="loggedInUser" [touristClubOwnerId]="ownerId"></xp-club-message>
+    </div>
+    </div>
+
+    <div class="message-form">
+      <xp-club-message-form [touristClubId]="touristClubId"></xp-club-message-form>
+    </div>
+  </div>
+
+</div>

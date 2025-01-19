@@ -1,0 +1,48 @@
+<div class="coupon-form-container">
+  <form [formGroup]="couponsForm" class="coupon-form">
+    <div class="coupon-header">
+      <h2>Coupon Details</h2>
+    </div>
+    <hr />
+    <div class="identifier">
+      <!-- <mat-form-field class="form-field"> -->
+        <!-- <mat-label>Identifier:</mat-label> -->
+        <input matInput readonly formControlName="identifier" type="text" />
+      <!-- </mat-form-field> -->
+      <button  class="form-btn" (click)="generateIdentifier()">Generate Identifier</button>
+    </div>
+    <div class="form-group">
+      <mat-form-field class="form-field">
+        <mat-label>Percentage:</mat-label>
+        <input matInput formControlName="percentage" type="number" min="10" max="99" />
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-form-field class="form-field">
+        <mat-label>Expiration date:</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="expirationDate" [min]="minDate" />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-form-field class="form-field">
+        <mat-label>Your tours:</mat-label>
+        <mat-select multiple formControlName="toursEligible">
+          <mat-option *ngFor="let tour of tours" [value]="tour.id">
+            {{ tour.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div class="checkbox-group">
+        <span>or</span>
+        <mat-checkbox formControlName="areAllToursIncluded">Include all your tours:</mat-checkbox>
+      </div>
+    </div>
+    <div class="form-actions">
+      <button  class="form-btn" (click)="cancel()">Cancel</button>
+      <button *ngIf="!shouldEdit"  type="submit" class="form-btn" (click)="addCoupon()" >Add coupon</button>
+      <button *ngIf="shouldEdit"  type="submit" class="form-btn" (click)="updateCoupon()" >Update coupon</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,121 @@
+/* Opšti stilovi za formu */
+.keypoint-form {
+    background: #fffdf3;;
+    color: black;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Kontejner za sadržaj forme */
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  /* Naslov forme */
+  .keypoint-form h3 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: black;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Stilovi za polja forme */
+  .form-field {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .mat-form-field-wrapper {
+    padding: 10px;
+    color: #fff;
+  }
+  
+  .mat-label {
+    color: #b0c4de;
+    font-weight: bold;
+  }
+  
+  .mat-input-element {
+    color: #fff;
+  }
+  
+  .mat-form-field.mat-focused .mat-label {
+    color: #ffa500;
+  }
+  
+  .mat-error {
+    color: #ff4d4d;
+    font-weight: bold;
+  }
+  
+  /* Checkbox stilovi */
+  .mat-checkbox-layout {
+    display: flex;
+    align-items: center;
+    color: #fff;
+  }
+  
+  .mat-checkbox .mat-checkbox-frame {
+    border-color: #ffa500;
+  }
+  
+  .mat-checkbox-checked .mat-checkbox-background {
+    background-color: #ffa500 !important;
+  }
+  
+  /* File upload stilovi */
+  .file-upload {
+    /* background: rgba(255, 255, 255, 0.1); */
+    border: 2px dashed #b0c4de;
+    padding: 10px;
+    text-align: center;
+    border-radius: 8px;
+    color: #b0c4de;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .file-upload:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffa500;
+    border-color: #ffa500;
+  }
+  
+  /* Dugme za slanje */
+  .submit-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  button {
+    background: #ffa500;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  button:hover {
+    /* background: #ff4500; */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  

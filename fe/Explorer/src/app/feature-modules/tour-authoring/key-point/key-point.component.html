@@ -1,0 +1,47 @@
+<img class="pic-design" src="assets/images/keypoint.jpg" >
+    <div class="img-cover">
+      <h1 class="header_my_profile">Key Points</h1>
+      <button (click)="add()">Add New Key Point</button>
+    </div>
+<div class="keypoint-container">
+    <!-- Sidebar for key points -->
+    <div class="keypoint-sidebar">
+      <div class="keypoint-header">
+        <h1>Key Points</h1>
+      </div>
+      <div class="keypoint-list">
+        <div *ngFor="let keypoint of keyPoints" class="keypoint-card">
+          <div class="card-header">
+            <h3><strong>{{ keypoint.name }}</strong></h3>
+            <hr>
+          </div>
+          <div class="card-body">
+            <p><strong>Description:</strong> {{keypoint.description}}</p>
+            <p><strong>Latitude:</strong> {{keypoint.latitude}}</p>
+            <p><strong>Longitude:</strong> {{keypoint.longitude}}</p>
+            <img [src]="imageMap.get(keypoint.image)" alt="Keypoint image" class="keypoint-image">
+          </div>
+          <div class="card-actions">
+            <button class="add-encounter" (click)="createNewEncounter(keypoint.latitude, keypoint.longitude)"  matTooltip="Add encounter to KeyPoint" >Add Encounter</button>
+            <button mat-icon-button (click)="edit(keypoint)" matTooltip="Edit KeyPoint">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Central Map Section -->
+    <div class="keypoint-map">
+        <xp-map (mapClick)="onMapClick($event)" [update]="triggerMap" (tourDuration)="onTourDurationRecived($event)" (tourLength)="onTourLengthReceived($event)" id="mapKeyPoint" [externalPoints]="externalPoints"></xp-map>
+    </div>
+
+  </div>
+  
+  <div class="modal" *ngIf="shouldEdit || shouldAdd" (click)="closeModal()" >
+    <div class="modal-content" (click)="$event.stopPropagation()">
+        <span class="close" (click)="closeModal()">&times;</span>
+        <xp-key-point-form (keyPointAdded)="addKeypoint($event)" (keyPointUpdated)="updateKeyPoint($event)" [shouldEdit]="shouldEdit" [keyPoint]="selectedKeyPoint" [longitude]="longitude" [latitude]="latitude">
+        </xp-key-point-form>
+      </div>
+  </div>

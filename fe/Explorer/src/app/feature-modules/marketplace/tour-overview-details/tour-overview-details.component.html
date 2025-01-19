@@ -1,0 +1,33 @@
+<div class="tour-layout">
+  <!-- Leva strana - Osnovni podaci -->
+  <div class="tour-details">
+    <h1>- {{tour.name}} -</h1>
+    <img [src]="tour.image" alt="">
+    <p class="description-wrap">{{tour.description}}</p>
+    <h4>Length: {{tour.length}}</h4>
+    <h4>Rating: {{tour.averageRate}}</h4>
+    <h4>Price: {{tour.cost}} AC</h4>
+   <!-- <div class="routing-buttons">
+    
+    </div>-->
+  </div>
+
+  <!-- Desna strana - Ključne tačke -->
+  <div class="tour-keypoints">
+    <div *ngIf="!tokenExists">
+      <h4>First Key Point:</h4>
+      <xp-tour-keypoint-preview [keyPoint]="tour.keyPoints[0]"></xp-tour-keypoint-preview>
+    </div>
+
+    <div *ngIf="tokenExists">
+      <h4>Key Points:</h4>
+      <div *ngFor="let keyPoint of tour?.keyPoints">
+        <xp-tour-keypoint-preview [keyPoint]="keyPoint"></xp-tour-keypoint-preview>
+      </div>
+    </div>
+  </div>
+  <button *ngIf="!tokenExists" mat-raised-button class="button_shop" 
+    (click)="onAddToCart(tour)" [disabled]="isTourInCart">
+    Add to cart 🛒
+  </button>
+</div>

@@ -1,0 +1,49 @@
+<form [formGroup]="equipmentForm" class="equipment-form">
+    <div class="form-container">
+      <h3 class="form-title">Manage Equipment</h3>
+  
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Name</mat-label>
+        <input 
+          matInput 
+          formControlName="name" 
+          type="text" 
+          matTooltip="Enter name of equipment" />
+        <mat-error *ngIf="equipmentForm.get('name')?.hasError('required')">
+          Name is required.
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Description</mat-label>
+        <textarea 
+          matInput
+          cdkTextareaAutosize
+          cdkAutosizeMinRows="1"
+          cdkAutosizeMaxRows="5"
+          formControlName="description"
+          matTooltip="Provide a short description of the equipment"></textarea>
+        <mat-error *ngIf="equipmentForm.get('description')?.hasError('required')">
+          Description is required.
+        </mat-error>
+      </mat-form-field>
+  
+      <div class="form-actions">
+        <button  
+          color="primary" 
+          *ngIf="!shouldEdit" 
+          type="submit" 
+          (click)="addEquipment()">
+          Done
+        </button>
+        <button 
+          color="accent" 
+          *ngIf="shouldEdit" 
+          type="submit" 
+          (click)="updateEquipment()">
+          Done
+        </button>
+      </div>
+    </div>
+  </form>
+  

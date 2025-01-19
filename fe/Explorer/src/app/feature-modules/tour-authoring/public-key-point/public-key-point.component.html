@@ -1,0 +1,46 @@
+<div class="pic-design-container">
+    <img class="pic-design" src="assets/images/keypoint.jpg">
+    <div class="img-cover">
+      <h1 class="header_my_profile">Public Key Points</h1>
+    </div>
+  </div>
+  
+  <div class="keypoint-container">
+    <!-- Sidebar for public key points -->
+    <div class="keypoint-sidebar">
+      <div class="keypoint-header">
+        <h1>Public Key Points</h1>
+      </div>
+      <div class="keypoint-list">
+        <div *ngFor="let publickeypoint of publicKeyPoints" class="keypoint-card">
+          <div class="card-header">
+            <h3><strong>{{ publickeypoint.name }}</strong></h3>
+            <hr>
+          </div>
+          <div class="card-body">
+            <p><strong>Description:</strong> {{ publickeypoint.description }}</p>
+            <p><strong>Latitude:</strong> {{ publickeypoint.latitude }}</p>
+            <p><strong>Longitude:</strong> {{ publickeypoint.longitude }}</p>
+            <img [src]="imageMap.get(publickeypoint.image)" alt="Keypoint image" class="keypoint-image">
+          </div>
+          <div class="card-actions">
+            <button class="add-keypoint" (click)="add(publickeypoint)" matTooltip="Add this public Key Point to your tour">
+              <!-- <mat-icon>add</mat-icon> -->Add to tour
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Central map section -->
+    <div class="keypoint-map">
+      <xp-map id="mapKeyPoint" 
+              [disableMapClick]="true" 
+              [externalPoints]="externalPoints" 
+              [publicPoints]="markerKeyPoints" 
+              (tourDuration)="onTourDurationRecived($event)" 
+              (tourLength)="onTourLengthReceived($event)">
+      </xp-map>
+    </div>
+  </div>
+  

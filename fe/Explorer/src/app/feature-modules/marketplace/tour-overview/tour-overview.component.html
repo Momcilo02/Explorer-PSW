@@ -1,0 +1,56 @@
+<div class="body">
+  <div class="header">
+    <img class="pic-design" src="/assets/images/tour_header.jpg" >
+    <div class="img-cover">
+      <h1 class="header_my_profile">Find the tour that suits you the best</h1>
+      <div class="buttons">
+        <button (click)="toggleMap()">Search</button>
+        <button class="search-btn" (click)="clearSearch()">Clear search</button>  
+      </div>
+    </div>
+  </div>
+  <div class="tour-container" [class.map-open]="isSearchOpen">
+    <div class="tour">
+      <div class="tour-list">
+        <div class="tour-card" *ngFor="let tour of publishedTours" (click)="openDetails(tour)">
+          <img [src]="tour.image" alt="image">
+          <h2 class="card-header">- {{ tour.name }} -</h2>
+          <br>
+          <h4>Price: {{tour.cost}} AC</h4>
+          <h1 class="buy" *ngIf="isTourPurchased(tour.id)">purchased</h1>
+        </div>
+      </div>
+      <h1 *ngIf="publishedTours.length === 0">Sorry. There are no tours in the searched area!</h1>
+    </div>
+    <div class="map-frame" *ngIf="isSearchOpen">
+      <div class="search-fields">
+        <h4>Click on map and enter distance.</h4>
+        <div class="search-inputs">
+          <form [formGroup]="distanceForm">
+          <mat-form-field>
+            <input matInput matTooltip="Enter the distance to search for." placeholder="Distance in kilometers:" formControlName="distance" type="number" min="10">
+            <mat-error *ngIf="distanceForm.get('distance')?.hasError('required')">
+                Distance is required.
+            </mat-error>
+            <mat-error *ngIf="distanceForm.get('distance')?.hasError('min')">
+                Min value for distance is 10km.
+            </mat-error>
+          </mat-form-field>
+        </form>
+          <button class="search-btn" (click)="searchTours()">Search</button>
+        </div>
+        <div class="mapp">
+          <p *ngIf="!isClicked">You have to click on the map!</p>
+          <xp-map id="searchMap" [showSearch]="false" (mapClick)="onMapClick($event)"></xp-map> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" *ngIf="selectedTour" (click)="closeModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+      <span class="close" (click)="closeModal()">&times;</span>
+      <xp-tour-overview-details [tourID]="selectedTour.id" (addedToCart)="closeModal()"></xp-tour-overview-details>
+  </div>
+</div>

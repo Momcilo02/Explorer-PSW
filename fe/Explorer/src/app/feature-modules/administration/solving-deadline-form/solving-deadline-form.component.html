@@ -1,0 +1,20 @@
+<form [formGroup]="form" (ngSubmit)="setDate()">
+
+  <mat-form-field appearance="outline" class="narrow-date-picker">
+
+    <input matInput formControlName="releasedAt" [matDatepicker]="releasedAtPicker" [min]="minDate">
+
+    <mat-datepicker-toggle matPrefix [for]="releasedAtPicker">
+      <mat-icon matDatepickerToggleIcon>
+        calendar_month
+      </mat-icon>
+    </mat-datepicker-toggle>
+
+    <mat-datepicker #releasedAtPicker> </mat-datepicker>
+    <mat-error *ngIf="releasedAt?.invalid">
+      Invalid date format. Use MM/dd/yyyy.
+    </mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" class="set-date-button" [disabled]="form.invalid" (click)="makeUpdate(); logClick()">Set Date</button>
+  </form>

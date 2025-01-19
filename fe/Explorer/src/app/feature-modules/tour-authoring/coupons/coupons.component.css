@@ -1,0 +1,146 @@
+.pic-design{
+    width: 100%;
+    height: 45vh;
+    object-fit: cover;
+}
+.img-cover{
+    width: 100%;
+    height: 45vh;
+    background-color: rgba(0, 0, 0, 0.65);
+    position: absolute;
+    top: 8vh;
+    left: 0;
+    z-index: 1000;
+    flex-direction: column;
+    display: flex;
+}
+
+.header_my_profile{
+    position: relative;
+    z-index: 1100;
+    top: 18vh;
+    margin-left: 40%;
+    color: #DBFCFF;
+}
+
+.img-cover button{
+    position: absolute;
+    left: 2vh;
+    bottom: 2vh;
+    width: 15%;
+  }
+
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+    padding: 40px;
+  }
+  
+  .card {
+    background-color: #fffdf3; 
+    border: 2px dashed #ffcc00; 
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    padding: 15px;
+    width: 320px;
+    font-family: 'Arial', sans-serif;
+    position: relative; 
+    overflow: hidden;
+  }
+  
+  .card-header h3 {
+    margin: 0;
+    font-size: 1.4em;
+    color: #333;
+    text-align: center;
+    border-bottom: 1px solid #ffcc00;
+    padding-bottom: 10px;
+  }
+  
+  .card-body p {
+    margin: 5px 0;
+    font-size: 1em;
+    color: #555;
+  }
+  
+  .card-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 15px;
+  }
+  
+  .card-actions button {
+    cursor: pointer;
+  }
+  
+  /* Dekorativni kružići za kupon */
+  .card::before,
+  .card::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #fffdf3;
+    border: 2px solid #ffcc00;
+    border-radius: 50%;
+  }
+  
+  .card::before {
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .card::after {
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .menu-button {
+    position: absolute;
+    top: 1px; 
+    right: 1px; 
+    z-index: 10; 
+  }
+  .top-right-menu {
+    position: absolute;
+    top: 40px; 
+    right: 20px; 
+    z-index: 100;
+  }
+
+  .modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 2000;
+  }
+  
+  .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 30%;
+    height: 90%;
+    position: relative;
+  }
+  
+  .modal-content .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    color: black;
+  }

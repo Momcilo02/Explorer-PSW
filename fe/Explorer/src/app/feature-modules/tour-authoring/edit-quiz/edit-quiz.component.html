@@ -1,0 +1,90 @@
+<div class="quiz-container">
+  <h2>Edit Quiz</h2>
+
+  <form (ngSubmit)="onSubmit()">
+    <!-- Naziv kviza -->
+    <mat-form-field appearance="outline" class="quiz-title">
+      <mat-label>Quiz Title</mat-label>
+      <input matInput [(ngModel)]="quiz.title" name="quizTitle" required />
+    </mat-form-field>
+
+    <!-- Pitanja -->
+    <div *ngFor="let question of quiz.questions; let i = index" class="question-block">
+      <h3>Question {{ i + 1 }}</h3>
+      <mat-form-field appearance="outline" class="question-field">
+        <mat-label>Enter question text</mat-label>
+        <input matInput [(ngModel)]="question.questionText" name="question{{ i }}" required />
+      </mat-form-field>
+
+      <mat-radio-group
+        [(ngModel)]="question.correctAnswerIndex"
+        name="correctAnswerIndex{{ i }}"
+        class="correct-answer"
+      >
+        <div *ngFor="let answer of question.answers; let j = index" class="answer-block">
+          <mat-radio-button [value]="j" class="correct-answer-btn">
+            {{ j + 1 }}
+          </mat-radio-button>
+          <mat-form-field appearance="outline" class="answer-field">
+            <mat-label>Enter answer</mat-label>
+            <input
+              matInput
+              [(ngModel)]="answer.answerText"
+              name="answer{{ i }}{{ j }}"
+              required
+            />
+          </mat-form-field>
+        </div>
+      </mat-radio-group>
+
+      <!-- Dodaj odgovor -->
+      <button mat-button color="primary" type="button" (click)="addAnswer(i)">
+        Add Answer
+      </button>
+    </div>
+
+    <!-- Dodaj pitanje -->
+    <button mat-button color="primary" type="button" (click)="addQuestion()">
+      Add More Questions
+    </button>
+
+    <!-- Sekcija za nagradu -->
+    <div class="reward-section">
+      <h3>Quiz Reward</h3>
+      <mat-form-field appearance="outline">
+        <mat-label>Reward Type</mat-label>
+        <mat-select [(ngModel)]="quiz.reward.type" name="rewardType">
+          <mat-option *ngFor="let type of rewardTypes" [value]="type">{{ type }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Reward Amount</mat-label>
+        <input
+          matInput
+          type="number"
+          [(ngModel)]="quiz.reward.amount"
+          name="rewardAmount"
+          min="1"
+          required
+        />
+      </mat-form-field>
+    </div>
+
+    <!-- Izmeni kviz -->
+    <button mat-raised-button color="accent" type="submit">
+      Save Changes
+    </button>
+
+    <!-- Dugme za brisanje kviza -->
+    <button
+      mat-raised-button
+      color="warn"
+      type="button"
+      (click)="onDeleteQuiz()"
+      style="margin-left: 15px"
+    >
+      Delete Quiz
+    </button>
+  </form>
+</div>

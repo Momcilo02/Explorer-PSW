@@ -1,0 +1,278 @@
+#clubs {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+#clubs-details {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    align-items: flex-start;
+    width: 100%;
+}
+#header-section {
+  display: flex;
+  justify-content: left;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  border: 3px solid gold;
+  border-radius: 20px;
+  padding: 15px;
+}
+
+#header-section p {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+.tourist-club-form{
+  margin-top: 20px;
+}
+
+
+p {
+    font-size: 20px;
+}
+
+table {
+    border-collapse: collapse;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 300px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+thead tr {
+    background-color: #3f51b5;
+    color: #ffffff;
+    text-align: left;
+}
+
+th, td {
+    padding: 12px 15px;
+}
+
+tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+tbody tr:last-of-type {
+    border-bottom: 2px solid #3f51b5;
+}
+
+tbody tr.active-row {
+    font-weight: bold;
+    color: #3f51b5;
+}
+.send-message-button {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #F2D177;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.send-message-button:hover{
+  background-color: #DBFCFF;
+  color: #031926 ;
+  box-shadow: none ;
+  border: 1px solid rgb(242, 209, 119, 0);
+}
+
+xp-club-message-form {
+  flex-grow: 1;
+  width: 100%;
+}
+
+xp-tourist-club-chat {
+  flex-grow: 1;
+  width: 100%;
+}
+
+#titleClub{
+
+    display: flex;
+}
+#identation
+{
+    margin-left: 400px;
+}
+
+/* kartice */
+.card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  transition: transform 0.2s;
+  overflow: hidden;
+  width: 100%;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px;
+  border: 2px solid #DBFCFF; /* Add border to the image */
+  border-right: 2px solid #DBFCFF;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.card-description {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px; /* Add some space before the button */
+}
+
+.card-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.join-button {
+  padding: 8px 12px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  transition: background-color 0.2s;
+}
+
+.join-button:hover {
+  background-color: #0056b3;
+}
+
+.already-member {
+  font-size: 14px;
+  color: #28a745;
+  font-weight: bold;
+}
+.edit-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #dea404;
+  font-size: 16px;
+  border-radius: 30px;
+}
+
+.edit-button:hover {
+  background-color: #c4f8fc;
+}
+
+.create-club-button {
+  display: flex;
+  align-items: center;
+  width: 200px;
+  padding: 10px 15px;
+  background-color: #F2D177;
+  color: #333;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.create-club-button:hover {
+  background-color: #DBFCFF;
+  transform: scale(1.05);
+  box-shadow: none;
+  border: 1px solid rgb(242, 209, 119, 0);
+}
+
+.large-icon {
+  font-size: 24px; /* Povećanje veličine ikone */
+  margin-right: 8px; /* Razmak između ikone i teksta */
+}
+
+.create-club-button span {
+  margin-left: 8px; /* Razmak između ikone i teksta */
+}
+
+.content-container {
+  display: flex; /* Postavlja decu u red */
+  flex-direction: row; /* Deca su poređana horizontalno */
+  gap: 20px; /* Razmak između kartica i chata */
+  justify-content: space-between; /* Raspoređuje elemente ravnomerno */
+  align-items: flex-start; /* Poravnanje na vrhu */
+}
+
+.card-container {
+  flex: 2; /* Daje karticama više prostora */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.chat-container {
+  flex: 1; /* Daje chatu manje prostora */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px; /* Razmak unutar chat sekcije */
+  border-radius: 8px; /* Zaokruživanje ivica */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Blaga senka */
+    margin-left: 540px;
+}
+.rateSelect{
+    width: 40px;
+    border-radius: 10px;
+    border-color: #3f51b5;
+
+}
+
+.rateButton{
+    border-radius: 10px;
+    width: 80px;
+    background-color: #3f51b5;
+    margin-left: 20px;
+    color: white;
+
+}

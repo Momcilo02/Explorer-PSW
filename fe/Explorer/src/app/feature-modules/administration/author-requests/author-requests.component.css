@@ -1,0 +1,132 @@
+.pic-design {
+    width: 100%;
+    height: 45vh;
+    object-fit: cover;
+  }
+  
+  .img-cover {
+    width: 100%;
+    height: 45vh;
+    background-color: rgba(0, 0, 0, 0.65);
+    position: absolute;
+    top: 8vh;
+    left: 0;
+    z-index: 1000;
+    flex-direction: column;
+    display: flex;
+  }
+  
+  .header_my_profile {
+    position: relative;
+    z-index: 1100;
+    top: 30vh;
+    color: #DBFCFF;
+    margin-left: 45%;
+  }
+
+#request {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  #request h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  #request-details table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  #request-details th,
+  #request-details td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  #request-details th {
+    background-color: #031926;
+    color: white;
+    font-weight: bold;
+  }
+  
+  #request-details tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  #request-details input[type="text"] {
+    padding: 5px;
+    width: 100px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .action-button {
+    padding: 5px 10px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .acceptButton {
+    background-color: #031926;
+    color: white;
+  }
+  
+  .acceptButton:hover {
+    background-color: #0AADFF;
+    color: #031926;
+  }
+  
+  .refuseButton {
+    background-color: #FF6347;
+    color: white;
+  }
+  
+  .refuseButton:hover {
+    background-color: #FF8C75;
+    color: #031926;
+  }
+  
+  .submitButton {
+    background-color: #4CAF50;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+  }
+  
+  .submitButton:hover {
+    background-color: #66BB6A;
+  }
+  
+  #request-details td:last-child {
+    text-align: center;
+  }
+
+td {
+    position: relative;
+    min-width: 120px;
+}
+
+.buttons {
+    display: flex;
+    float: row;
+    position: absolute;
+    right: 0px;
+    top: 26%;
+}

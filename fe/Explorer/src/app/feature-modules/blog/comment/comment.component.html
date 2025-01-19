@@ -1,0 +1,49 @@
+<div id="blogs">
+    <div class="carousel-container">
+        <h1 class="mat-headline">Title: {{blog.title}}</h1>
+        <p>Description: {{blog.description}}</p>
+        <div class="carousel">
+            <div *ngFor="let img of blog.imageUrl" class="card">
+                <img [src]="imageMap.get(img)">
+            </div>
+        </div>
+        
+    </div>
+    <h1>Comments</h1>
+    <div id="blog-details">
+        <div *ngFor="let c of blog?.comments" class="comment-card">
+            <mat-card>
+                <mat-card-content>
+                    <p><strong>Created:</strong> {{c.createdAt}}</p>
+                    <p><strong>Text:</strong> {{c.text}}</p>
+                    <p><strong>Last Modified:</strong> {{c.lastModified}}</p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <!-- Delete button -->
+                    <button color="warn" (click)="deleteComment(c.id)" mat-icon-button>
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                    <!-- Edit button -->
+                    <button color="accent" (click)="editComment(c)" mat-icon-button>
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+        <div>
+            <!-- Button to add a new comment -->
+            <button color="primary" (click)="addCommentClick()" mat-icon-button>
+                <mat-icon>add</mat-icon> Add Comment
+            </button>
+        </div>
+        <div>
+            <app-comment-form 
+                *ngIf="addingComment || editingComment"
+                [comment]="selectedComment"
+                [blogId]="blogId"
+                (commentAdded)="getComments()"
+                (commentUpdated)="getComments()">
+            </app-comment-form>
+        </div>
+    </div>
+</div>

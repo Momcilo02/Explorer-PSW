@@ -1,0 +1,132 @@
+<div class="keypoint">
+  <div class="tour-info-main-div">
+    <div class="tour-info">
+      <div class="header-tour">
+        <h1 id="TourNameExecution">{{tour.name}}</h1> 
+        <button id="executionLeaveButton" (click)="LeaveTour()">Leave Tour</button>
+      </div>
+      <div id="tourExecutiondescription">
+          
+              {{tour.description}} <br><br> 
+              <p *ngIf="tour.difficulty === 1"><b>Difficulty:</b> Medium </p>
+              <p *ngIf="tour.difficulty === 0"><b>Difficulty:</b> Easy </p>
+              <p *ngIf="tour.difficulty === 2"><b>Difficulty:</b> Hard </p>
+              <p *ngIf="tour.difficulty === 3"><b>Difficulty:</b> Hell </p>
+      </div>
+    </div>
+
+
+    <div class="frame-div">
+      <div 
+        class="frame-view" 
+        [ngClass]="{'frame-hover': selectedFrame === 0}" 
+        (click)="selectFrame(0)">
+        Completed Tour KeyPoints
+      </div>
+
+      <div 
+        class="frame-view" 
+        [ngClass]="{'frame-hover': selectedFrame === 1}" 
+        (click)="selectFrame(1)">
+          Tour Encounters
+      </div>
+    </div>
+
+
+
+  
+    <div *ngIf="selectedFrame === 0" class="height-cards-all">
+            <div class="encounter-container">
+              <div class="encounters-list">
+                <div *ngIf="completedKeyPoint.length > 0">
+                  <div *ngFor="let completed of completedKeyPoint" class="encounter-card">
+                
+                    <div class="card-header" (click)="toggleExpand(completed.id)">
+                      <img class="img-type" src="/assets/images/keypoint.png">
+                      <h3 class="enc-header">{{ completed.name }}</h3>
+                      <button class="toggle-button">
+                          {{ expandedEncounterId === completed.id ? '▲' : '▼' }}
+                      </button>
+                    </div>
+                      
+                    <div class="card-body" [ngClass]="{ 'expanded': expandedEncounterId === completed.id }">
+                      <hr class="fading-hr">
+
+                      <div class="img-keypoint"><img class= "img-of-kp" [src]="imageMap.get(completed.image)" alt="Keypoint image"></div>
+                      <p>{{ completed.description }}</p>
+                      
+                        
+                    </div>
+                  </div>     
+                </div>
+
+                <div *ngIf="completedKeyPoint.length === 0">
+                  <p>Complete keypoints to reveal secrets</p>
+                </div>
+                  
+              </div>
+            </div>
+    </div>
+
+
+
+    <div *ngIf="selectedFrame === 1" class="height-cards-all">
+      <div>
+        <div class="encounter-container">
+            <div class="encounters-list">
+              <div *ngIf="encounters.length > 0">
+                <div *ngFor="let encounter of encounters" class="encounter-card">
+            
+                  <div class="card-header" (click)="toggleExpand(encounter.id)">
+                    <img *ngIf="encounter.encounterType == 1" class="img-type" src="/assets/images/hidden.png">
+                    <img *ngIf="encounter.encounterType == 2" class="img-type" src="/assets/images/misc.png">
+                    <img *ngIf="encounter.encounterType == 0" class="img-type" src="/assets/images/social.png">
+                    <h3 class="enc-header">{{ encounter.name }}</h3>
+                    <button class="button-enc" *ngIf="selectedCoordinates && loggedInUser.role === 'tourist'" (click)="activateEncounter(encounter.id)">Start</button>
+                    <button class="toggle-button">
+                      {{ expandedEncounterId === encounter.id ? '▲' : '▼' }}
+                    </button>
+                  </div>
+                  
+            
+            
+                  <div class="card-body" [ngClass]="{ 'expanded': expandedEncounterId === encounter.id }">
+                    <hr class="fading-hr">
+                    <p>{{ encounter.description }}</p>
+                  
+                    <p><strong>Type:</strong> {{ getEncounterTypeLabel(encounter.encounterType) }}</p>
+                    <p *ngIf="encounter.isTourRequired !== null">
+                      <strong>Is Tour Required:</strong>
+                      {{ encounter.isTourRequired ? 'Yes' : 'No' }}
+                    </p>
+                    <p *ngIf="encounter.instructions">
+                      <strong>Instructions:</strong> {{ encounter.instructions }}
+                    </p>
+                    <p *ngIf="encounter.peopleNumb">
+                      <strong>People Required:</strong> {{ encounter.peopleNumb }}
+                    </p>
+                    <div *ngIf="selectedCoordinates && loggedInUser.role === 'tourist'">
+                      <p><strong>Your Coordinates:</strong>{{ selectedCoordinates.lat }}, {{ selectedCoordinates.lng }}</p>
+                    </div>
+            
+                    <div class="xp-style">
+                      <p>{{ encounter.totalXp }}XP</p>
+                    </div>
+                  </div>
+              </div>
+            </div> 
+          </div>    
+          
+                  <div *ngIf="encounters.length == 0">
+                    <p>No encounters found.</p>
+                  </div>
+        </div>
+    </div>
+  </div>
+</div>
+    
+
+  <div class="mapKP">
+      <xp-map class="object-map" (mapClick)="onMapClick($event)" [touristPosition]="touristPosition" [keyPointsMarker]="keyPointsMarker"  [encounters]="encounterMarkers"></xp-map>
+  </div>
+</div>

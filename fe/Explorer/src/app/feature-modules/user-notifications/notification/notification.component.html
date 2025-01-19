@@ -1,0 +1,61 @@
+<div *ngIf="totalNotifications === 0 && adventureCoins === 0" class="no-new">No new notifications</div>
+    <div class="notif-table" *ngFor="let notif of notification; let i = index" style="cursor: pointer;">
+        <table>
+            <tr>
+                <th rowspan="2" *ngIf="notif.notificationType == 0">
+                    <img class="notif-icon" src="assets/images/message_lightblue.png">
+                </th>
+                <th rowspan="2" *ngIf="notif.notificationType == 1">
+                    <img class="notif-icon" src="assets/images/deadline_lightblue.png">
+                </th>
+                <th rowspan="2" *ngIf="notif.notificationType == 2">
+                  <img class="notif-icon" src="assets/images/message_lightblue.png">
+              </th>
+                <th *ngIf="notif.notificationType == 0">New message</th>
+                <th *ngIf="notif.notificationType == 1">New deadline</th>
+                <th *ngIf="notif.notificationType == 2">New profile message</th>
+                <th *ngIf="notif.notificationType == 3">New administrator response</th>
+                <th *ngIf="notif.notificationType == 4">New administrator response</th>
+                <th *ngIf="notif.notificationType == 5">New administrator response</th>
+                <th *ngIf="notif.notificationType == 6">New administrator response</th>
+            </tr>
+            <tr>
+                <td *ngIf="notif.notificationType == 0" > <a  (click)="navigateToReport(notif)">Someone added a new comment in {{ tourName[i] }} report</a></td>
+                <td *ngIf="notif.notificationType == 1"><a  (click)="navigateToReport(notif)" >Administrator added a deadline in {{ tourName[i] }} report</a></td>
+                <td *ngIf="notif.notificationType == 2">
+                  <a (click)="navigateToChat(notif)"> You have a new message in chat. Go to chat</a>
+              </td>
+              <td *ngIf="notif.notificationType == 3">
+                <a> Administrator accept your request for public key point</a>
+              </td>
+              <td *ngIf="notif.notificationType == 4">
+                <a> Administrator refuse your request for public key point</a>
+              </td>
+              <td *ngIf="notif.notificationType == 5">
+                <a> Administrator refuse your request for public object</a>
+              </td>
+              <td *ngIf="notif.notificationType == 6">
+                <a> Administrator refuse your request for public object</a>
+              </td>
+            </tr>
+        </table>
+    </div>
+
+ 
+<!-- AdventureCoins Notification -->
+<div *ngIf="adventureCoins > 0" class="notif-table" style="cursor: default;">
+  <table>
+    <tr>
+      <th rowspan="2">
+        <img class="notif-icon" src="assets/images/coins_lightblue.png" />
+      </th>
+      <th>Adventure Coins Notification</th>
+    </tr>
+    <tr>
+      <td>
+        Someone sent you <strong>{{ adventureCoins }}</strong> AC!
+      </td>
+    </tr>
+  </table>
+</div>
+
